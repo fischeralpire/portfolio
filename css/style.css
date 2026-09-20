@@ -25,7 +25,7 @@
 body {
   font-family: Tahoma, 'MS Sans Serif', Arial, sans-serif;
   font-size: 11px;
-  background: url('../img/fonfo-de-pantalla.jpg') center center / cover no-repeat fixed;
+  background: url('../img/fondo-de-pantalla.jpg') center center / cover no-repeat fixed;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
