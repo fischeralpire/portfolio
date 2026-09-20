@@ -145,8 +145,8 @@ function wizardNext() {
   if (!selected) return;
   const val = selected.value;
 
-  if (val === 'projects') {
-    openWin('projects');
+  if (val === 'projects' || val === 'about') {
+    openWin(val);
     closeWizard();
     return;
   }
@@ -159,7 +159,6 @@ function wizardNext() {
   nextBtn.disabled = true;
 
   const answers = {
-    about:  "Ich studiere Medieninformatik im Master an der HSD Düsseldorf und arbeite nebenbei als Werkstudentin bei Code for Health im Bereich UX/UI Design. Ursprünglich komme ich aus Bolivien, lebe aber inzwischen in Essen – Design, das wirklich für Menschen funktioniert, ist meine Leidenschaft.",
     skills: "HTML/CSS, JavaScript, React, PHP und Figma gehören zu meinen Stärken – die komplette Übersicht mit Einschätzung findest du gleich im Skills-Fenster.",
     hire:   "Für das nächste Update ist zuerst eine Verbindung erforderlich. Nimm Kontakt mit mir auf."
   };
@@ -179,9 +178,7 @@ function wizardNext() {
     nextBtn.disabled = false;
     nextBtn.textContent = val === 'hire' ? 'Kontakt öffnen >' : 'Desktop erkunden >';
     nextBtn.onclick = () => {
-      if (val === 'hire')        { openWin('blog'); }
-      else if (val === 'skills') { openWin('computer'); }
-      else                       { openWin('about'); }
+      openWin(val === 'hire' ? 'blog' : 'computer');
       closeWizard();
     };
   }
