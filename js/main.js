@@ -108,6 +108,12 @@ function wizardNext() {
   if (!selected) return;
   const val = selected.value;
 
+  if (val === 'projects') {
+    openWin('projects');
+    closeWizard();
+    return;
+  }
+
   const aiArea  = document.getElementById('wizard-ai-area');
   const nextBtn = document.getElementById('wiz-next-btn');
 
@@ -116,10 +122,9 @@ function wizardNext() {
   nextBtn.disabled = true;
 
   const answers = {
-    about:    "Ich studiere Medieninformatik im Master an der HSD Düsseldorf und arbeite nebenbei als Werkstudentin bei Code for Health im Bereich UX/UI Design. Ursprünglich komme ich aus Bolivien, lebe aber inzwischen in Essen – Design, das wirklich für Menschen funktioniert, ist meine Leidenschaft.",
-    projects: "Ich habe schon einiges gebaut: ein PHP-Anmeldeportal für ein Tanzturnier, eine TYPO3-Extension mit Datenbankanbindung und eine interaktive 3D-Website mit Schulklassen. Schau gerne im Projects-Ordner vorbei!",
-    skills:   "HTML/CSS, JavaScript, React, PHP und Figma gehören zu meinen Stärken – die komplette Übersicht mit Einschätzung findest du gleich im Skills-Fenster.",
-    hire:     "Das freut mich riesig! Schreib mir einfach eine E-Mail an fischer.alpire@gmail.com – ich melde mich garantiert zurück."
+    about:  "Ich studiere Medieninformatik im Master an der HSD Düsseldorf und arbeite nebenbei als Werkstudentin bei Code for Health im Bereich UX/UI Design. Ursprünglich komme ich aus Bolivien, lebe aber inzwischen in Essen – Design, das wirklich für Menschen funktioniert, ist meine Leidenschaft.",
+    skills: "HTML/CSS, JavaScript, React, PHP und Figma gehören zu meinen Stärken – die komplette Übersicht mit Einschätzung findest du gleich im Skills-Fenster.",
+    hire:   "Das freut mich riesig! Schreib mir einfach eine E-Mail an fischer.alpire@gmail.com – ich melde mich garantiert zurück."
   };
   const text = answers[val] || '';
 
@@ -133,10 +138,9 @@ function wizardNext() {
       nextBtn.disabled = false;
       nextBtn.textContent = val === 'hire' ? 'Kontakt öffnen >' : 'Desktop erkunden >';
       nextBtn.onclick = () => {
-        if (val === 'hire')          { openWin('blog'); }
-        else if (val === 'projects') { openWin('projects'); }
-        else if (val === 'skills')   { openWin('computer'); }
-        else                         { openWin('about'); }
+        if (val === 'hire')        { openWin('blog'); }
+        else if (val === 'skills') { openWin('computer'); }
+        else                       { openWin('about'); }
         closeWizard();
       };
     }
