@@ -96,6 +96,19 @@ function hideStart() {
   document.getElementById('start-menu').classList.remove('visible');
 }
 
+// ── COPY TO CLIPBOARD ──
+function copyValue(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const original = btn.innerHTML;
+    btn.classList.add('copied');
+    btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 16 16"><polyline points="3,8 6,12 13,4" fill="none" stroke="#2a8a2a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    setTimeout(() => {
+      btn.innerHTML = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  });
+}
+
 // ── ICON SELECT ──
 function selectIcon(el) {
   document.querySelectorAll('.icon').forEach(i => i.classList.remove('selected'));

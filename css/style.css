@@ -417,8 +417,20 @@ body {
   display: flex; align-items: center; justify-content: center;
 }
 .contact-label { font-weight: bold; color: var(--xp-blue-dark); font-size: 11px; margin-bottom: 2px; }
+.contact-value-row { display: flex; align-items: center; gap: 6px; }
 .contact-value { font-size: 11px; color: #333; }
 .contact-sub { font-size: 10px; color: #777; margin-top: 2px; }
+
+.copy-btn {
+  display: flex; align-items: center; justify-content: center;
+  width: 20px; height: 20px; padding: 0; flex-shrink: 0;
+  background: linear-gradient(to bottom, #f5f4ea 0%, #dcd9c2 100%);
+  border: 1px solid #aaa; border-radius: 3px;
+  cursor: pointer;
+}
+.copy-btn:hover { background: linear-gradient(to bottom, #fff 0%, #ece9d8 100%); }
+.copy-btn:active { filter: brightness(0.9); }
+.copy-btn.copied { border-color: #2a8a2a; }
 
 /* ── STATUS BAR ── */
 .status-bar {
