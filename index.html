@@ -520,6 +520,10 @@
             Zeig mir deine Projekte
           </label>
           <label class="wizard-radio">
+            <input type="radio" name="wiz" value="skills">
+            Ich möchte mehr über deine Skills erfahren
+          </label>
+          <label class="wizard-radio">
             <input type="radio" name="wiz" value="hire">
             Ich möchte dich einstellen
           </label>
@@ -527,7 +531,7 @@
         <div id="wizard-ai-area"></div>
         <div id="wizard-sep"></div>
         <div id="wizard-footer">
-          <button class="wiz-btn" onclick="closeWizard()">Abbrechen</button>
+          <button class="wiz-btn" onclick="openWin('about');closeWizard()">Abbrechen</button>
           <button class="wiz-btn primary" id="wiz-next-btn" onclick="wizardNext()">Weiter &gt;</button>
         </div>
       </div>
