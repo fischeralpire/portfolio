@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joanna Fischer Alpire</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ── DESKTOP ── -->
+<div id="desktop" oncontextmenu="showCtxMenu(event)">
+
+  <!-- XP Folder SVG reusable -->
+  <svg style="display:none">
+    <symbol id="ico-folder" viewBox="0 0 32 32">
+      <rect x="1" y="9" width="30" height="20" rx="2" fill="#f0c040" stroke="#c09000" stroke-width="1"/>
+      <rect x="1" y="9" width="12" height="6" rx="2" fill="#f8d860" stroke="#c09000" stroke-width="1"/>
+      <rect x="3" y="13" width="26" height="16" rx="1" fill="#fce070" stroke="#c09000" stroke-width="1"/>
+    </symbol>
+    <symbol id="ico-doc" viewBox="0 0 32 32">
+      <rect x="4" y="2" width="20" height="28" rx="1" fill="white" stroke="#7f9db9" stroke-width="1"/>
+      <polygon points="20,2 24,6 20,6" fill="#cce0f0" stroke="#7f9db9" stroke-width="1"/>
+      <rect x="7" y="10" width="14" height="1.5" fill="#aaa"/>
+      <rect x="7" y="14" width="12" height="1.5" fill="#aaa"/>
+      <rect x="7" y="18" width="14" height="1.5" fill="#aaa"/>
+      <rect x="7" y="22" width="10" height="1.5" fill="#aaa"/>
+    </symbol>
+    <symbol id="ico-pc" viewBox="0 0 32 32">
+      <rect x="4" y="3" width="24" height="18" rx="2" fill="#d0d8e8" stroke="#7f9db9" stroke-width="1"/>
+      <rect x="6" y="5" width="20" height="14" fill="#1a4fc2"/>
+      <rect x="13" y="21" width="6" height="3" fill="#b0b8c8"/>
+      <rect x="9" y="24" width="14" height="2" rx="1" fill="#d0d8e8" stroke="#999" stroke-width="1"/>
+      <text x="16" y="14" text-anchor="middle" fill="white" font-size="6" font-family="monospace">C:\</text>
+    </symbol>
+    <symbol id="ico-mail" viewBox="0 0 32 32">
+      <rect x="2" y="6" width="28" height="20" rx="2" fill="white" stroke="#7f9db9" stroke-width="1"/>
+      <polyline points="2,6 16,18 30,6" fill="none" stroke="#7f9db9" stroke-width="1.5"/>
+    </symbol>
+    <symbol id="ico-skill" viewBox="0 0 32 32">
+      <circle cx="16" cy="16" r="13" fill="#dce8f8" stroke="#7f9db9" stroke-width="1.5"/>
+      <circle cx="16" cy="16" r="4" fill="#1a4fc2"/>
+      <line x1="16" y1="3" x2="16" y2="8" stroke="#7f9db9" stroke-width="2"/>
+      <line x1="16" y1="24" x2="16" y2="29" stroke="#7f9db9" stroke-width="2"/>
+      <line x1="3" y1="16" x2="8" y2="16" stroke="#7f9db9" stroke-width="2"/>
+      <line x1="24" y1="16" x2="29" y2="16" stroke="#7f9db9" stroke-width="2"/>
+    </symbol>
+  </svg>
+
+  <!-- Desktop Icons -->
+  <div class="icon" style="top:20px;left:20px" ondblclick="openWin('computer')" onclick="selectIcon(this)">
+    <svg width="32" height="32"><use href="#ico-pc"/></svg>
+    <div class="icon-label">My Computer</div>
+  </div>
+
+  <div class="icon" style="top:110px;left:20px" ondblclick="openWin('about')" onclick="selectIcon(this)">
+    <svg width="32" height="32"><use href="#ico-folder"/></svg>
+    <div class="icon-label">My Documents</div>
+  </div>
+
+  <div class="icon" style="top:200px;left:20px" ondblclick="openWin('about')" onclick="selectIcon(this)">
+    <svg width="32" height="32"><use href="#ico-doc"/></svg>
+    <div class="icon-label">About</div>
+  </div>
+
+  <div class="icon" style="top:295px;left:20px" ondblclick="openWin('projects')" onclick="selectIcon(this)">
+    <svg width="32" height="32"><use href="#ico-folder"/></svg>
+    <div class="icon-label">Projects</div>
+  </div>
+
+  <div class="icon" style="top:390px;left:20px" ondblclick="openWin('computer')" onclick="selectIcon(this)">
+    <svg width="32" height="32"><use href="#ico-skill"/></svg>
+    <div class="icon-label">Skills</div>
+  </div>
+
+  <div class="icon" style="top:485px;left:20px" ondblclick="openWin('blog')" onclick="selectIcon(this)">
+    <svg width="32" height="32"><use href="#ico-mail"/></svg>
+    <div class="icon-label">Contact</div>
+  </div>
+
+</div><!-- /desktop -->
+
+
+<!-- ══════════════ WINDOWS ══════════════ -->
+
+<!-- MY COMPUTER / SKILLS -->
+<div class="window" id="win-computer" style="top:100px;left:180px">
+  <div class="title-bar" onmousedown="dragStart(event,'computer')">
+    <div class="title-bar-left">
+      <svg class="title-bar-icon" width="16" height="16"><use href="#ico-pc"/></svg>
+      My Computer
+    </div>
+    <div class="title-bar-btns">
+      <div class="win-btn win-btn-min" onclick="">_</div>
+      <div class="win-btn win-btn-max" onclick="">&#9633;</div>
+      <div class="win-btn win-btn-close" onclick="closeWin('computer')">x</div>
+    </div>
+  </div>
+  <div class="menu-bar">
+    <span class="menu-item">Datei</span>
+    <span class="menu-item">Bearbeiten</span>
+    <span class="menu-item">Ansicht</span>
+    <span class="menu-item">Hilfe</span>
+  </div>
+  <div class="address-bar">Dieser Computer</div>
+  <div style="display:flex">
+    <div class="xp-panel" style="min-width:130px">
+      <div class="xp-panel-title">Systemaufgaben</div>
+      <a class="xp-panel-link" onclick="openWin('about')">Info anzeigen</a>
+      <a class="xp-panel-link" onclick="openWin('projects')">Projekte</a>
+      <a class="xp-panel-link" onclick="openWin('blog')">Kontakt</a>
+    </div>
+    <div class="drives-grid" style="flex:1">
+
+      <div class="drive-item">
+        <svg width="28" height="28" viewBox="0 0 32 32"><rect x="4" y="2" width="24" height="24" rx="2" fill="#f0c040" stroke="#c09000" stroke-width="1"/><rect x="8" y="2" width="8" height="10" fill="#c09000"/><rect x="6" y="16" width="20" height="8" rx="1" fill="#c09000"/><rect x="8" y="17" width="16" height="6" rx="1" fill="#f0e080"/><circle cx="22" cy="20" r="2" fill="#c09000"/></svg>
+        <div class="drive-name">HTML5 / CSS3</div>
+        <div class="drive-bar-wrap"><div class="drive-bar"><div class="drive-fill" style="width:95%"></div></div></div>
+        <div class="skill-pct">Expert · 95%</div>
+      </div>
+
+      <div class="drive-item">
+        <svg width="28" height="28" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="#d0d0d0" stroke="#888" stroke-width="1.5"/><circle cx="16" cy="16" r="5" fill="#444"/><circle cx="16" cy="16" r="2" fill="#c0c0c0"/></svg>
+        <div class="drive-name">JavaScript / TS</div>
+        <div class="drive-bar-wrap"><div class="drive-bar"><div class="drive-fill" style="width:85%"></div></div></div>
+        <div class="skill-pct">Fortgeschritten · 85%</div>
+      </div>
+
+      <div class="drive-item">
+        <svg width="28" height="28" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="#d0d0d0" stroke="#888" stroke-width="1.5"/><circle cx="16" cy="16" r="5" fill="#444"/><circle cx="16" cy="16" r="2" fill="#c0c0c0"/></svg>
+        <div class="drive-name">React / Next.js</div>
+        <div class="drive-bar-wrap"><div class="drive-bar"><div class="drive-fill" style="width:78%"></div></div></div>
+        <div class="skill-pct">Gut · 78%</div>
+      </div>
+
+      <div class="drive-item">
+        <svg width="28" height="28" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="#d0d0d0" stroke="#888" stroke-width="1.5"/><circle cx="16" cy="16" r="5" fill="#444"/><circle cx="16" cy="16" r="2" fill="#c0c0c0"/></svg>
+        <div class="drive-name">Angular / Vue.js</div>
+        <div class="drive-bar-wrap"><div class="drive-bar"><div class="drive-fill" style="width:62%"></div></div></div>
+        <div class="skill-pct">Grundkenntnisse · 62%</div>
+      </div>
+
+      <div class="drive-item">
+        <svg width="28" height="28" viewBox="0 0 32 32"><rect x="4" y="2" width="24" height="24" rx="2" fill="#f0c040" stroke="#c09000" stroke-width="1"/><rect x="8" y="2" width="8" height="10" fill="#c09000"/><circle cx="22" cy="20" r="2" fill="#c09000"/></svg>
+        <div class="drive-name">PHP / Node.js</div>
+        <div class="drive-bar-wrap"><div class="drive-bar"><div class="drive-fill" style="width:78%"></div></div></div>
+        <div class="skill-pct">Gut · 78%</div>
+      </div>
+
+      <div class="drive-item">
+        <svg width="28" height="28" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="#d0d0d0" stroke="#888" stroke-width="1.5"/><circle cx="16" cy="16" r="5" fill="#444"/><circle cx="16" cy="16" r="2" fill="#c0c0c0"/></svg>
+        <div class="drive-name">MySQL / MongoDB</div>
+        <div class="drive-bar-wrap"><div class="drive-bar"><div class="drive-fill" style="width:75%"></div></div></div>
+        <div class="skill-pct">Gut · 75%</div>
+      </div>
+
+      <div class="drive-item">
+        <svg width="28" height="28" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="#d0d0d0" stroke="#888" stroke-width="1.5"/><circle cx="16" cy="16" r="5" fill="#444"/><circle cx="16" cy="16" r="2" fill="#c0c0c0"/></svg>
+        <div class="drive-name">Python</div>
+        <div class="drive-bar-wrap"><div class="drive-bar"><div class="drive-fill" style="width:68%"></div></div></div>
+        <div class="skill-pct">Grundkenntnisse · 68%</div>
+      </div>
+
+      <div class="drive-item">
+        <svg width="28" height="28" viewBox="0 0 32 32"><rect x="4" y="2" width="24" height="24" rx="2" fill="#f0c040" stroke="#c09000" stroke-width="1"/><rect x="8" y="2" width="8" height="10" fill="#c09000"/><circle cx="22" cy="20" r="2" fill="#c09000"/></svg>
+        <div class="drive-name">Figma / Adobe XD</div>
+        <div class="drive-bar-wrap"><div class="drive-bar"><div class="drive-fill" style="width:90%"></div></div></div>
+        <div class="skill-pct">Expert · 90%</div>
+      </div>
+
+      <div class="drive-item">
+        <svg width="28" height="28" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="#d0d0d0" stroke="#888" stroke-width="1.5"/><circle cx="16" cy="16" r="5" fill="#444"/><circle cx="16" cy="16" r="2" fill="#c0c0c0"/></svg>
+        <div class="drive-name">UX Research</div>
+        <div class="drive-bar-wrap"><div class="drive-bar"><div class="drive-fill" style="width:85%"></div></div></div>
+        <div class="skill-pct">Fortgeschritten · 85%</div>
+      </div>
+
+      <div class="drive-item">
+        <svg width="28" height="28" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="#d0d0d0" stroke="#888" stroke-width="1.5"/><circle cx="16" cy="16" r="5" fill="#444"/><circle cx="16" cy="16" r="2" fill="#c0c0c0"/></svg>
+        <div class="drive-name">WordPress / TYPO3</div>
+        <div class="drive-bar-wrap"><div class="drive-bar"><div class="drive-fill" style="width:75%"></div></div></div>
+        <div class="skill-pct">Gut · 75%</div>
+      </div>
+
+      <div class="drive-item">
+        <svg width="28" height="28" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="#d0d0d0" stroke="#888" stroke-width="1.5"/><circle cx="16" cy="16" r="5" fill="#444"/><circle cx="16" cy="16" r="2" fill="#c0c0c0"/></svg>
+        <div class="drive-name">Git / GitLab CI</div>
+        <div class="drive-bar-wrap"><div class="drive-bar"><div class="drive-fill" style="width:82%"></div></div></div>
+        <div class="skill-pct">Fortgeschritten · 82%</div>
+      </div>
+
+      <div class="drive-item">
+        <svg width="28" height="28" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="#d0d0d0" stroke="#888" stroke-width="1.5"/><circle cx="16" cy="16" r="5" fill="#444"/><circle cx="16" cy="16" r="2" fill="#c0c0c0"/></svg>
+        <div class="drive-name">Eye Tracking</div>
+        <div class="drive-bar-wrap"><div class="drive-bar"><div class="drive-fill" style="width:72%"></div></div></div>
+        <div class="skill-pct">Gut · 72%</div>
+      </div>
+
+    </div>
+  </div>
+  <div class="status-bar">
+    <div class="status-panel">12 Objekte</div>
+    <div class="status-panel">Frontend · Backend · Design · UX</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="window" id="win-about" style="top:80px;left:200px">
+  <div class="title-bar" onmousedown="dragStart(event,'about')">
+    <div class="title-bar-left">
+      <svg class="title-bar-icon" width="16" height="16"><use href="#ico-folder"/></svg>
+      My Documents – About Me
+    </div>
+    <div class="title-bar-btns">
+      <div class="win-btn win-btn-min">_</div>
+      <div class="win-btn win-btn-max">&#9633;</div>
+      <div class="win-btn win-btn-close" onclick="closeWin('about')">x</div>
+    </div>
+  </div>
+  <div class="menu-bar">
+    <span class="menu-item">Datei</span>
+    <span class="menu-item">Bearbeiten</span>
+    <span class="menu-item">Ansicht</span>
+  </div>
+  <div class="address-bar">Meine Dokumente \ About Me</div>
+  <div class="window-content">
+    <div class="about-inner">
+      <div class="about-header">
+        <div class="about-photo">
+          <img src="img/immagine_profilo_joanna.png" alt="Joanna Fischer Alpire">
+        </div>
+        <div>
+          <div class="about-name">Joanna Fischer Alpire</div>
+          <div class="about-role">UX/UI Design &middot; Frontend Development &middot; M.Sc. Medieninformatik</div>
+          <div class="about-tagline">Ich gestalte Interfaces, die von echten Menschen gedacht sind – und baue sie dann auch selbst.</div>
+        </div>
+      </div>
+      <div class="about-body">
+        <p>Derzeit studiere ich Medieninformatik im Master an der Hochschule Düsseldorf (HSD) und arbeite als Werkstudentin bei Code for Health im Bereich UX/UI Design. Mein Hintergrund ist ein B.Sc. in Digitalen Medien (HS Fulda), wo ich gelernt habe, Design und Entwicklung nicht als getrennte Disziplinen zu behandeln.</p>
+        <p>Ich komme aus Bolivien, spreche Spanisch, Deutsch und Englisch fließend – und bringe einen Blick mit, der nicht immer vom gleichen Ort aus schaut. Das halte ich für einen echten Vorteil bei der Arbeit an Produkten für viele verschiedene Menschen.</p>
+      </div>
+      <div class="about-details">
+
+        <div class="detail-row">
+          <svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1 Q7 1 7 1 C4.5 1 2.5 3 2.5 5.5 C2.5 8.5 7 13 7 13 S11.5 8.5 11.5 5.5 C11.5 3 9.5 1 7 1Z" fill="#c00" stroke="#800" stroke-width="0.5"/><circle cx="7" cy="5.5" r="1.5" fill="white"/></svg>
+          <span class="detail-label">Standort:</span> Essen, 45138
+        </div>
+
+        <div class="detail-row">
+          <svg width="14" height="14" viewBox="0 0 14 14"><polygon points="7,1 13,5 13,9 7,13 1,9 1,5" fill="#1a4fc2" stroke="#0a246a" stroke-width="0.5"/><polygon points="7,4 10,6 10,8 7,10 4,8 4,6" fill="white"/></svg>
+          <span class="detail-label">Studium:</span> HSD Düsseldorf
+        </div>
+
+        <div class="detail-row">
+          <svg width="14" height="14" viewBox="0 0 14 14"><rect x="1" y="4" width="12" height="8" rx="1" fill="#d0d8e8" stroke="#7f9db9" stroke-width="1"/><rect x="3" y="2" width="4" height="3" fill="none" stroke="#7f9db9" stroke-width="1"/></svg>
+          <span class="detail-label">Aktuell:</span> Code for Health
+        </div>
+
+        <div class="detail-row">
+          <svg width="14" height="14" viewBox="0 0 14 14"><rect x="1" y="3" width="12" height="8" rx="1" fill="white" stroke="#7f9db9" stroke-width="1"/><polyline points="1,3 7,8 13,3" fill="none" stroke="#7f9db9" stroke-width="1"/></svg>
+          <span class="detail-label">Mail:</span> fischer.alpire@gmail.com
+        </div>
+
+        <div class="detail-row">
+          <svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" fill="#333" stroke="#555" stroke-width="0.5"/><circle cx="7" cy="7" r="2.5" fill="#555"/><circle cx="7" cy="7" r="1" fill="#333"/></svg>
+          <span class="detail-label">GitHub:</span> fischeralpire
+        </div>
+
+        <div class="detail-row">
+          <svg width="14" height="14" viewBox="0 0 14 14"><path d="M3 2 Q2 2 2 4 Q2 7 5 8 Q6 5 8 6 Q10 7 10 9 Q10 12 8 12 Q3 12 2 7 Q1 3 3 2Z" fill="#7f9db9" stroke="#5a7fa0" stroke-width="0.5"/></svg>
+          <span class="detail-label">Tel:</span> +49 179 5344137
+        </div>
+
+        <div class="detail-row">
+          <svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" fill="#dce8f8" stroke="#7f9db9" stroke-width="1"/><ellipse cx="7" cy="7" rx="2.5" ry="6" fill="none" stroke="#7f9db9" stroke-width="1"/><line x1="1" y1="7" x2="13" y2="7" stroke="#7f9db9" stroke-width="1"/></svg>
+          <span class="detail-label">Sprachen:</span> DE &middot; EN &middot; ES &middot; IT
+        </div>
+
+        <div class="detail-row">
+          <svg width="14" height="14" viewBox="0 0 14 14"><polygon points="7,1 8.5,5 13,5 9.5,7.5 10.5,12 7,9.5 3.5,12 4.5,7.5 1,5 5.5,5" fill="#f0c040" stroke="#c09000" stroke-width="0.5"/></svg>
+          <span class="detail-label">Hobbys:</span> Salsa &middot; Reisen &middot; Design
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="status-bar">
+    <div class="status-panel">README.txt</div>
+    <div class="status-panel">Version 2025.1</div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="window" id="win-projects" style="top:60px;left:230px">
+  <div class="title-bar" onmousedown="dragStart(event,'projects')">
+    <div class="title-bar-left">
+      <svg class="title-bar-icon" width="16" height="16"><use href="#ico-folder"/></svg>
+      Projects
+    </div>
+    <div class="title-bar-btns">
+      <div class="win-btn win-btn-min">_</div>
+      <div class="win-btn win-btn-max">&#9633;</div>
+      <div class="win-btn win-btn-close" onclick="closeWin('projects')">x</div>
+    </div>
+  </div>
+  <div class="menu-bar">
+    <span class="menu-item">Datei</span>
+    <span class="menu-item">Bearbeiten</span>
+    <span class="menu-item">Ansicht</span>
+    <span class="menu-item">Sortieren</span>
+  </div>
+  <div class="address-bar">Meine Dokumente \ Projects</div>
+  <div class="proj-toolbar">
+    <button class="proj-toolbar-btn">Zurück</button>
+    <button class="proj-toolbar-btn">Suchen</button>
+    <button class="proj-toolbar-btn">Ordner</button>
+  </div>
+  <div class="window-content" style="padding:0">
+    <div class="proj-list">
+      <div class="proj-header">
+        <div class="proj-col-header">Name</div>
+        <div class="proj-col-header">Beschreibung</div>
+        <div>Stack</div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-icon"><svg width="16" height="16"><use href="#ico-folder"/></svg> Anmelde-Portal</div>
+        <div class="proj-desc">Tanzturnier-Plattform, eigenständig entwickelt und deployed</div>
+        <div class="proj-tags"><span>PHP</span><span>Bootstrap</span><span>Nginx</span></div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-icon"><svg width="16" height="16"><use href="#ico-folder"/></svg> TYPO3-Extension BMI</div>
+        <div class="proj-desc">Extension mit Datenbankanbindung und nutzerfreundlicher UI</div>
+        <div class="proj-tags"><span>TYPO3</span><span>PHP</span><span>SQL</span></div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-icon"><svg width="16" height="16"><use href="#ico-folder"/></svg> CoCre-HIT</div>
+        <div class="proj-desc">Kollaboratives Lernprojekt, UI in Figma, WordPress</div>
+        <div class="proj-tags"><span>WordPress</span><span>Figma</span><span>CSS</span></div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-icon"><svg width="16" height="16"><use href="#ico-folder"/></svg> SQL-GPT</div>
+        <div class="proj-desc">NLP zu SQL via LLM-Integration, Flask Backend</div>
+        <div class="proj-tags"><span>Python</span><span>Flask</span><span>MySQL</span></div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-icon"><svg width="16" height="16"><use href="#ico-folder"/></svg> 3D-Workshopreihe</div>
+        <div class="proj-desc">3D-Scans als interaktive Website mit Schulklassen</div>
+        <div class="proj-tags"><span>Three.js</span><span>GLTF</span><span>WebGL</span></div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-icon"><svg width="16" height="16"><use href="#ico-folder"/></svg> Kompendium Next.js</div>
+        <div class="proj-desc">Dokumentationsplattform mit CI/CD Pipeline</div>
+        <div class="proj-tags"><span>Next.js</span><span>TypeScript</span><span>Tailwind</span></div>
+      </div>
+      <div class="proj-row">
+        <div class="proj-icon"><svg width="16" height="16"><use href="#ico-folder"/></svg> Bücher-Onlineverleih</div>
+        <div class="proj-desc">Bibliothekssystem für Code for Health</div>
+        <div class="proj-tags"><span>PHP</span><span>MySQL</span></div>
+      </div>
+      <div class="proj-row" ondblclick="openWin('delightex')">
+        <div class="proj-icon"><svg width="16" height="16"><use href="#ico-folder"/></svg> Delightex-Lernräume</div>
+        <div class="proj-desc">Interaktive 3D-Lernräume für eine Schul-AG, eigenständig konzipiert und umgesetzt</div>
+        <div class="proj-tags"><span>Delightex</span><span>CoBlocks</span><span>Blender</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="status-bar">
+    <div class="status-panel">8 Objekte</div>
+    <div class="status-panel">Sortiert nach: Datum</div>
+  </div>
+</div>
+
+<!-- DELIGHTEX PROJECT DETAIL -->
+<div class="window" id="win-delightex" style="top:60px;left:250px;width:640px">
+  <div class="title-bar" onmousedown="dragStart(event,'delightex')">
+    <div class="title-bar-left">
+      <svg class="title-bar-icon" width="16" height="16"><use href="#ico-folder"/></svg>
+      Delightex-Lernräume.docx
+    </div>
+    <div class="title-bar-btns">
+      <div class="win-btn win-btn-min">_</div>
+      <div class="win-btn win-btn-max">&#9633;</div>
+      <div class="win-btn win-btn-close" onclick="closeWin('delightex')">x</div>
+    </div>
+  </div>
+  <div class="menu-bar">
+    <span class="menu-item">Datei</span>
+    <span class="menu-item">Bearbeiten</span>
+    <span class="menu-item">Ansicht</span>
+  </div>
+  <div class="address-bar">Meine Dokumente \ Projects \ Delightex-Lernräume</div>
+  <div class="window-content" style="max-height:560px">
+    <div class="proj-detail">
+      <h2 class="proj-detail-title">Interaktive Delightex-Lernräume: Konzeption und Umsetzung für eine Schul-AG</h2>
+
+      <video class="proj-detail-video" src="videos/Delightex.mp4" controls preload="metadata"></video>
+
+      <p>Im Rahmen meiner Arbeit schlug ich vor, die Workshops einer Schul-AG durch interaktive 3D-Lernräume in Delightex zu ergänzen. Ziel war es, eine wiederholt nutzbare Lernumgebung zu schaffen, in der die Kinder Programmierkonzepte selbstständig erproben und ihre Kenntnisse vertiefen können. Dabei sollten sie nicht ausschließlich KI-Anwendungen nutzen, sondern auch lernen, digitale Abläufe selbst zu gestalten und zu programmieren.</p>
+
+      <p>Die Ideen und pädagogischen Inhalte wurden gemeinsam mit Studierenden der Hochschule Düsseldorf (HSD) geplant. Die Workshops führten wir in Zusammenarbeit mit HSD und Code for Tomorrow durch. Die gestalterische und technische Umsetzung der Delightex-Räume übernahm ich eigenständig. Dazu gehörten der räumliche Aufbau, die Integration der 3D-Objekte, die Gestaltung der Lernstationen und die Programmierung der Interaktionen mit CoBlocks.</p>
+
+      <p>Für die Aufbereitung der 3D-Assets verwendete ich Blender. Modelle aus der BlenderKit-Bibliothek passte ich hinsichtlich ihrer Materialien und Texturen für die Verwendung in Delightex an. Da sich nodebasierte Blender-Materialien nicht ohne Weiteres übertragen lassen, überprüfte ich die Darstellung nach dem Import in Delightex. Ein Texture-Baking wurde dabei nicht durchgeführt; Farben und Materialeigenschaften wurden teilweise übernommen.</p>
+
+      <p>Für den AG-Tag 4 gestaltete ich eine virtuelle Fabrikumgebung als räumliche Metapher für strukturierte Programmabläufe. Ein markierter Weg, Hinweisschilder und ein Rover verbinden die Lernstationen. Das Maskottchen Digi sowie textliche und auditive Anleitungen unterstützen die Orientierung und Aufgabenbearbeitung.</p>
+
+      <p>Die Programmierübungen basieren auf CoBlocks, der visuellen, blockbasierten Programmierumgebung von Delightex. In der angeleiteten Einstiegsübung beobachten die Kinder die Bewegung von Sternobjekten und rekonstruieren anschließend die zugehörigen Befehlssequenzen. Dabei arbeiten sie mit Ereignissen, Bewegungsbefehlen und Warteblöcken. In einer weiterführenden Aufgabe erstellen sie einen eigenen Bewegungspfad für einen Papagei und kombinieren dessen Bewegung mit Schleifen und einer Fluganimation.</p>
+
+      <p>Der didaktische Aufbau folgt dem Scaffolding-Prinzip: Ein vorbereitender Screencast und schrittweise Anleitungen bieten zunächst Unterstützung. Diese wird im weiteren Verlauf reduziert, sodass die Kinder zunehmend eigene Lösungswege entwickeln. Die unmittelbare visuelle Rückmeldung im Raum macht die Auswirkungen ihres Codes nachvollziehbar und unterstützt das eigenständige Experimentieren.</p>
+
+      <p>Mein Beitrag umfasste somit die ursprüngliche Projektidee sowie die eigenständige gestalterische und technische Realisierung der Delightex-Lernräume – von der Aufbereitung der 3D-Assets in Blender über die räumliche Gestaltung bis zur Umsetzung der interaktiven Übungen mit CoBlocks. Die pädagogische Planung und die Durchführung der Workshops erfolgten in Zusammenarbeit mit den beteiligten Partnern.</p>
+    </div>
+  </div>
+  <div class="status-bar">
+    <div class="status-panel">Delightex-Lernräume.docx</div>
+    <div class="status-panel">Version 2026.1</div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="window" id="win-blog" style="top:90px;left:210px">
+  <div class="title-bar" onmousedown="dragStart(event,'blog')">
+    <div class="title-bar-left">
+      <svg class="title-bar-icon" width="16" height="16"><use href="#ico-mail"/></svg>
+      Contact
+    </div>
+    <div class="title-bar-btns">
+      <div class="win-btn win-btn-min">_</div>
+      <div class="win-btn win-btn-max">&#9633;</div>
+      <div class="win-btn win-btn-close" onclick="closeWin('blog')">x</div>
+    </div>
+  </div>
+  <div class="menu-bar">
+    <span class="menu-item">Datei</span>
+    <span class="menu-item">Bearbeiten</span>
+  </div>
+  <div class="address-bar">Kontakt \ Joanna Fischer Alpire</div>
+  <div class="window-content">
+    <div class="contact-list">
+      <div class="contact-item">
+        <div class="contact-icon-wrap">
+          <svg width="28" height="28" viewBox="0 0 32 32"><rect x="2" y="6" width="28" height="20" rx="2" fill="white" stroke="#7f9db9" stroke-width="1.5"/><polyline points="2,6 16,18 30,6" fill="none" stroke="#7f9db9" stroke-width="1.5"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">E-Mail</div>
+          <div class="contact-value">fischer.alpire@gmail.com</div>
+          <div class="contact-sub">Antworte innerhalb von 24 Stunden</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon-wrap">
+          <svg width="28" height="28" viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="#333" stroke="#555" stroke-width="1"/><circle cx="16" cy="16" r="5" fill="#666"/><circle cx="16" cy="16" r="2" fill="#333"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">GitHub</div>
+          <div class="contact-value">github.com/fischeralpire</div>
+          <div class="contact-sub">Projekte, Repositories und Code</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon-wrap">
+          <svg width="28" height="28" viewBox="0 0 32 32"><path d="M6 4 Q4 4 4 8 Q4 16 10 18 Q12 11 16 13 Q21 15 21 19 Q21 26 17 26 Q6 26 4 15 Q2 7 6 4Z" fill="#7f9db9" stroke="#5a7fa0" stroke-width="1"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Telefon</div>
+          <div class="contact-value">+49 179 5344137</div>
+          <div class="contact-sub">Mo–Fr, 9–18 Uhr</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon-wrap">
+          <svg width="28" height="28" viewBox="0 0 32 32"><path d="M16 3 Q16 3 16 3 C10 3 5 8 5 14 C5 21 16 29 16 29 S27 21 27 14 C27 8 22 3 16 3Z" fill="#c00" stroke="#800" stroke-width="1"/><circle cx="16" cy="13" r="4" fill="white"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Standort</div>
+          <div class="contact-value">Essen, 45138</div>
+          <div class="contact-sub">Vor Ort und Remote möglich</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="status-bar">
+    <div class="status-panel">4 Einträge</div>
+  </div>
+</div>
+
+
+<!-- ══════════════ WIZARD ══════════════ -->
+<div id="wizard-overlay">
+  <div id="wizard-win">
+    <div id="wizard-titlebar">
+      <div id="wizard-titlebar-left">
+        <svg width="16" height="16" viewBox="0 0 16 16">
+          <rect x="0" y="0" width="7" height="7" fill="#e84040"/>
+          <rect x="9" y="0" width="7" height="7" fill="#40c840"/>
+          <rect x="0" y="9" width="7" height="7" fill="#4040e8"/>
+          <rect x="9" y="9" width="7" height="7" fill="#e8c840"/>
+        </svg>
+        Willkommen – Setup Wizard
+      </div>
+      <div id="wizard-close" onclick="closeWizard()">x</div>
+    </div>
+    <div id="wizard-body">
+      <div id="wizard-photo">
+        <img src="img/immagine_profilo_joanna.png" alt="Joanna Fischer Alpire">
+      </div>
+      <div id="wizard-right">
+        <div id="wizard-greeting">Danke, dass du<br>Joanna gewählt hast.</div>
+        <div id="wizard-subtitle">
+          Hallo! Ich bin Joanna – UX/UI Designerin und Frontendentwicklerin aus Essen (ursprünglich aus Bolivien).<br>
+          Womit kann ich dir heute helfen?
+        </div>
+        <div class="wizard-radio-group" id="wizard-options">
+          <label class="wizard-radio">
+            <input type="radio" name="wiz" value="about" checked>
+            Ich möchte mehr über Joanna erfahren
+          </label>
+          <label class="wizard-radio">
+            <input type="radio" name="wiz" value="skills">
+            Was sind deine technischen Skills?
+          </label>
+          <label class="wizard-radio">
+            <input type="radio" name="wiz" value="projects">
+            Zeig mir deine Projekte
+          </label>
+          <label class="wizard-radio">
+            <input type="radio" name="wiz" value="hire">
+            Ich möchte dich einstellen
+          </label>
+          <label class="wizard-radio">
+            <input type="radio" name="wiz" value="explore">
+            Nein danke, ich erkunde selbst
+          </label>
+        </div>
+        <div id="wizard-ai-area"></div>
+        <div id="wizard-sep"></div>
+        <div id="wizard-footer">
+          <button class="wiz-btn" onclick="closeWizard()">Abbrechen</button>
+          <button class="wiz-btn primary" id="wiz-next-btn" onclick="wizardNext()">Weiter &gt;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════ CONTEXT MENU ══════════════ -->
+<div id="ctx-menu">
+  <div class="ctx-item" onclick="openWin('about');hideCtx()">
+    <svg width="16" height="16"><use href="#ico-doc"/></svg> About öffnen
+  </div>
+  <div class="ctx-item" onclick="openWin('projects');hideCtx()">
+    <svg width="16" height="16"><use href="#ico-folder"/></svg> Projects öffnen
+  </div>
+  <div class="ctx-sep"></div>
+  <div class="ctx-item" onclick="openWin('computer');hideCtx()">
+    <svg width="16" height="16"><use href="#ico-pc"/></svg> Skills ansehen
+  </div>
+  <div class="ctx-item" onclick="openWin('blog');hideCtx()">
+    <svg width="16" height="16"><use href="#ico-mail"/></svg> Kontakt
+  </div>
+  <div class="ctx-sep"></div>
+  <div class="ctx-item" onclick="hideCtx()">Eigenschaften</div>
+</div>
+
+
+<!-- ══════════════ START MENU ══════════════ -->
+<div id="start-menu">
+  <div class="start-header">
+    <div class="start-avatar">
+      <img src="img/immagine_profilo_joanna.png" alt="Joanna">
+    </div>
+    <div class="start-username">Joanna Fischer Alpire</div>
+  </div>
+  <div class="start-items">
+    <div class="start-item" onclick="openWin('about');hideStart()">
+      <svg width="24" height="24"><use href="#ico-doc"/></svg>
+      <div class="start-item-texts">
+        <div class="start-item-label">About Me</div>
+        <div class="start-item-sub">Wer bin ich?</div>
+      </div>
+    </div>
+    <div class="start-item" onclick="openWin('projects');hideStart()">
+      <svg width="24" height="24"><use href="#ico-folder"/></svg>
+      <div class="start-item-texts">
+        <div class="start-item-label">Projects</div>
+        <div class="start-item-sub">Meine Arbeiten</div>
+      </div>
+    </div>
+    <div class="start-item" onclick="openWin('computer');hideStart()">
+      <svg width="24" height="24"><use href="#ico-pc"/></svg>
+      <div class="start-item-texts">
+        <div class="start-item-label">Skills</div>
+        <div class="start-item-sub">Technische Kenntnisse</div>
+      </div>
+    </div>
+    <div class="start-item" onclick="openWin('blog');hideStart()">
+      <svg width="24" height="24"><use href="#ico-mail"/></svg>
+      <div class="start-item-texts">
+        <div class="start-item-label">Contact</div>
+        <div class="start-item-sub">Schreib mir</div>
+      </div>
+    </div>
+  </div>
+  <div class="start-footer">
+    <div class="start-footer-item" onclick="alert('Auf Wiedersehen!')">
+      <svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="#e84040" stroke="#a00" stroke-width="1"/><line x1="10" y1="3" x2="10" y2="10" stroke="white" stroke-width="2"/><path d="M5 5 Q2 8 2 10 Q2 16 10 18 Q18 16 18 10 Q18 8 15 5" fill="none" stroke="white" stroke-width="2"/></svg>
+      Shut Down...
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════ TASKBAR ══════════════ -->
+<div id="taskbar">
+  <button id="start-btn" onclick="toggleStart()">
+    <svg width="20" height="20" viewBox="0 0 20 20">
+      <rect x="0" y="0" width="9" height="9" fill="#e84040"/>
+      <rect x="11" y="0" width="9" height="9" fill="#40c840"/>
+      <rect x="0" y="11" width="9" height="9" fill="#4040e8"/>
+      <rect x="11" y="11" width="9" height="9" fill="#e8c840"/>
+    </svg>
+    <b>start</b>
+  </button>
+  <div class="taskbar-divider"></div>
+  <div id="taskbar-items" style="display:flex;gap:3px;flex:1"></div>
+  <div id="clock">12:00</div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
