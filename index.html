@@ -343,8 +343,8 @@
         <div class="proj-desc">Extension mit Datenbankanbindung und nutzerfreundlicher UI</div>
         <div class="proj-tags"><span>TYPO3</span><span>PHP</span><span>SQL</span></div>
       </div>
-      <div class="proj-row">
-        <div class="proj-icon"><svg width="16" height="16"><use href="#ico-folder"/></svg> CoCre-HIT</div>
+      <div class="proj-row" role="button" tabindex="0" aria-label="CoCre-HIT Projektdetails öffnen" ondblclick="openWin('cocrehit')" onkeydown="keyActivate(event, () => openWin('cocrehit'))">
+        <div class="proj-icon"><svg width="16" height="16" aria-hidden="true"><use href="#ico-folder"/></svg> CoCre-HIT</div>
         <div class="proj-desc">Kollaboratives Lernprojekt, UI in Figma, WordPress</div>
         <div class="proj-tags"><span>WordPress</span><span>Figma</span><span>CSS</span></div>
       </div>
@@ -423,6 +423,44 @@
   </div>
   <div class="status-bar">
     <div class="status-panel">Delightex-Lernräume.docx</div>
+    <div class="status-panel">Version 2026.1</div>
+  </div>
+</div>
+
+<!-- COCRE-HIT PROJECT DETAIL -->
+<div class="window" id="win-cocrehit" style="top:60px;left:250px;width:640px">
+  <div class="title-bar" onmousedown="dragStart(event,'cocrehit')">
+    <div class="title-bar-left">
+      <svg class="title-bar-icon" width="16" height="16"><use href="#ico-folder"/></svg>
+      CoCre-HIT-Kompendium.docx
+    </div>
+    <div class="title-bar-btns">
+      <div class="win-btn win-btn-min" aria-hidden="true" tabindex="-1">_</div>
+      <div class="win-btn win-btn-max" aria-hidden="true" tabindex="-1">&#9633;</div>
+      <div class="win-btn win-btn-close" role="button" tabindex="0" aria-label="Fenster schließen" onclick="closeWin('cocrehit')" onkeydown="keyActivate(event, () => closeWin('cocrehit'))">x</div>
+    </div>
+  </div>
+  <div class="menu-bar">
+    <span class="menu-item">Datei</span>
+    <span class="menu-item">Bearbeiten</span>
+    <span class="menu-item">Ansicht</span>
+  </div>
+  <div class="address-bar">Meine Dokumente \ Projects \ CoCre-HIT-Kompendium</div>
+  <div class="window-content" style="max-height:560px">
+    <div class="proj-detail">
+      <h2 class="proj-detail-title">CoCre-HIT-Kompendium</h2>
+
+      <img class="proj-detail-image" src="img/kompendium.png" alt="Startseite des CoCre-HIT-Kompendiums mit der Illustration 'Hebe Schätze'">
+
+      <a class="proj-detail-link" href="https://cocre-hit-kompendium.wineme.wiwi.uni-siegen.de" target="_blank" rel="noopener">cocre-hit-kompendium.wineme.wiwi.uni-siegen.de</a>
+
+      <p>Im Rahmen meiner Arbeit bei Code for Health habe ich gemeinsam mit einer Arbeitskollegin am CoCre-HIT-Kompendium mitgewirkt: Ich habe die Grafiken und Illustrationen gestaltet, während meine Kollegin die Website technisch umgesetzt hat.</p>
+
+      <p>Das Kompendium sammelt praxisnahe Beispiele und Erfahrungsberichte zu den Sensitizing Concepts partizipativer Forschung – von Befähigung über Empathie bis Vertrauen – und macht so die oft unsichtbare Arbeit hinter Co-Creation-Prozessen sichtbar.</p>
+    </div>
+  </div>
+  <div class="status-bar">
+    <div class="status-panel">CoCre-HIT-Kompendium.docx</div>
     <div class="status-panel">Version 2026.1</div>
   </div>
 </div>

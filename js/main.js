@@ -27,6 +27,7 @@ const wins = {
   projects:  { el: null, title: 'Projects',            zIndex: 100 },
   blog:      { el: null, title: 'Contact',             zIndex: 100 },
   delightex: { el: null, title: 'Delightex-Lernräume', zIndex: 100 },
+  cocrehit:  { el: null, title: 'CoCre-HIT-Kompendium', zIndex: 100 },
 };
 let topZ = 200;
 
@@ -36,6 +37,7 @@ function initWins() {
   wins.projects.el  = document.getElementById('win-projects');
   wins.blog.el      = document.getElementById('win-blog');
   wins.delightex.el = document.getElementById('win-delightex');
+  wins.cocrehit.el  = document.getElementById('win-cocrehit');
 }
 
 function openWin(name) {
