@@ -102,65 +102,43 @@ function selectIcon(el) {
   el.classList.add('selected');
 }
 
-// ── WIZARD (AI) ──
-async function wizardNext() {
+// ── WIZARD ──
+function wizardNext() {
   const selected = document.querySelector('input[name="wiz"]:checked');
   if (!selected) return;
   const val = selected.value;
-
-  if (val === 'explore') { closeWizard(); return; }
 
   const aiArea  = document.getElementById('wizard-ai-area');
   const nextBtn = document.getElementById('wiz-next-btn');
 
   aiArea.classList.add('visible');
-  aiArea.innerHTML = '<span class="typing-dot">_</span>';
+  aiArea.innerHTML = '';
   nextBtn.disabled = true;
 
-  const prompts = {
-    about:    "Du bist Joanna Fischer Alpire, eine UX/UI Designerin und Frontendentwicklerin aus Düsseldorf. Jemand möchte mehr über dich erfahren. Antworte in 2-3 Sätzen auf Deutsch, persönlich und freundlich, in der ersten Person. Erwähne deinen bolivianischen Hintergrund, dein Masterstudium Medieninformatik an der HSD, und deine Leidenschaft für Design das wirklich für Menschen funktioniert.",
-    skills:   "Du bist Joanna Fischer Alpire, UX/UI Designerin und Frontendentwicklerin. Jemand fragt nach deinen Skills. Antworte in 2-3 Sätzen auf Deutsch, selbstbewusst aber nicht arrogant. Erwähne Figma, HTML/CSS, JavaScript, React, PHP und dass du sowohl Design als auch Code beherrschst.",
-    projects: "Du bist Joanna Fischer Alpire, Frontendentwicklerin. Jemand fragt nach deinen Projekten. Nenne kurz 2-3 deiner echten Projekte: ein PHP-Anmeldeportal für ein Tanzturnier, eine TYPO3-Extension, und ein 3D-Websiteprojekt mit Three.js und Schulklassen. Antworte in 2-3 Sätzen auf Deutsch, enthusiastisch.",
-    hire:     "Du bist Joanna Fischer Alpire und jemand möchte dich einstellen! Reagiere sehr positiv und freundlich auf Deutsch in 2 Sätzen. Sag dass du dich sehr freust und am besten per Email erreichbar bist: fischer.alpire@gmail.com"
+  const answers = {
+    about:    "Ich studiere Medieninformatik im Master an der HSD Düsseldorf und arbeite nebenbei als Werkstudentin bei Code for Health im Bereich UX/UI Design. Ursprünglich komme ich aus Bolivien, lebe aber inzwischen in Essen – Design, das wirklich für Menschen funktioniert, ist meine Leidenschaft.",
+    projects: "Ich habe schon einiges gebaut: ein PHP-Anmeldeportal für ein Tanzturnier, eine TYPO3-Extension mit Datenbankanbindung und eine interaktive 3D-Website mit Schulklassen. Schau gerne im Projects-Ordner vorbei!",
+    hire:     "Das freut mich riesig! Schreib mir einfach eine E-Mail an fischer.alpire@gmail.com – ich melde mich garantiert zurück."
   };
+  const text = answers[val] || '';
 
-  try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-6',
-        max_tokens: 1000,
-        messages: [{ role: 'user', content: prompts[val] }]
-      })
-    });
-    const data = await response.json();
-    const text = data.content?.[0]?.text || 'Fehler beim Laden.';
-
-    aiArea.innerHTML = '';
-    let i = 0;
-    function type() {
-      if (i < text.length) {
-        aiArea.innerHTML += text[i] === '\n' ? '<br>' : text[i];
-        i++;
-        setTimeout(type, 18);
-      } else {
-        nextBtn.disabled = false;
-        nextBtn.textContent = val === 'hire' ? 'Kontakt öffnen >' : 'Desktop erkunden >';
-        nextBtn.onclick = () => {
-          if (val === 'hire')     { openWin('blog'); }
-          else if (val === 'projects') { openWin('projects'); }
-          else if (val === 'skills')   { openWin('computer'); }
-          closeWizard();
-        };
-      }
+  let i = 0;
+  function type() {
+    if (i < text.length) {
+      aiArea.innerHTML += text[i] === '\n' ? '<br>' : text[i];
+      i++;
+      setTimeout(type, 18);
+    } else {
+      nextBtn.disabled = false;
+      nextBtn.textContent = val === 'hire' ? 'Kontakt öffnen >' : 'Desktop erkunden >';
+      nextBtn.onclick = () => {
+        if (val === 'hire')          { openWin('blog'); }
+        else if (val === 'projects') { openWin('projects'); }
+        closeWizard();
+      };
     }
-    type();
-
-  } catch(e) {
-    aiArea.innerHTML = 'Hoppla, keine Verbindung. Erkunde gerne selbst!';
-    nextBtn.disabled = false;
   }
+  type();
 }
 
 function closeWizard() {
