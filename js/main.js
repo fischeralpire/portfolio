@@ -5,7 +5,10 @@ function keyActivate(e, fn) {
     fn();
   }
 }
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let prefersReducedMotion = false;
+try {
+  prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+} catch (e) {}
 
 // ── CLOCK ──
 function updateClock() {
