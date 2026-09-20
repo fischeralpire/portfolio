@@ -312,7 +312,7 @@ body {
 .detail-label { font-weight: bold; color: var(--xp-blue-dark); min-width: 75px; }
 
 /* ── SKILLS / MY COMPUTER ── */
-#win-computer { width: 440px; top: 100px; left: 170px; }
+#win-computer { width: 640px; top: 60px; left: 170px; }
 .xp-panel {
   background: #ecf4fb;
   border-right: 1px solid #7f9db9;
@@ -333,25 +333,19 @@ body {
 .xp-panel-link:hover { color: #c00; }
 
 .drives-grid {
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 8px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 16px;
   background: white; border: 1px solid #7f9db9;
+  max-height: 480px; overflow-y: auto;
 }
 .drive-item {
   display: flex; flex-direction: column; align-items: center;
-  gap: 4px; padding: 8px; border-radius: 3px;
+  gap: 8px; padding: 16px; border-radius: 3px;
   cursor: pointer; text-align: center;
 }
 .drive-item:hover { background: #dce8f8; border: 1px solid #7f9db9; }
 .drive-item:hover .drive-name { color: var(--xp-blue-dark); }
-.drive-name { font-size: 10px; font-weight: bold; color: #333; }
+.drive-name { font-size: 13px; font-weight: bold; color: #333; }
 .drive-sub { font-size: 9px; color: #777; }
-.drive-bar-wrap { width: 100%; margin-top: 3px; }
-.drive-bar {
-  height: 6px; background: #e0e0e0;
-  border: 1px solid #999; border-radius: 1px;
-}
-.drive-fill { height: 100%; background: #316ac5; border-radius: 1px; }
-.skill-pct { font-size: 9px; color: #555; text-align: right; }
 
 /* ── PROJECTS ── */
 #win-projects { width: 580px; top: 60px; left: 230px; }
