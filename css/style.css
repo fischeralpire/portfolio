@@ -2,6 +2,24 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
 
+/* ── ACCESSIBILITY ── */
+[role="button"]:focus-visible,
+.copy-btn:focus-visible,
+.proj-toolbar-btn:focus-visible,
+#start-btn:focus-visible,
+.wizard-radio input:focus-visible,
+.wiz-btn:focus-visible,
+#desktop:focus-visible {
+  outline: 2px solid #ffbf47;
+  outline-offset: 2px;
+}
+.window-content, .about-body, .proj-detail p, .contact-value, .proj-desc {
+  user-select: text;
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
 :root {
   --xp-blue-dark:   #0a246a;
   --xp-blue-mid:    #2461be;

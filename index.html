@@ -9,7 +9,7 @@
 <body>
 
 <!-- ── DESKTOP ── -->
-<div id="desktop" oncontextmenu="showCtxMenu(event)">
+<div id="desktop" tabindex="0" aria-label="Desktop" oncontextmenu="showCtxMenu(event)">
 
   <!-- XP Folder SVG reusable -->
   <svg style="display:none">
@@ -48,33 +48,33 @@
   </svg>
 
   <!-- Desktop Icons -->
-  <div class="icon" style="top:20px;left:20px" ondblclick="openWin('computer')" onclick="selectIcon(this)">
-    <svg width="32" height="32"><use href="#ico-pc"/></svg>
+  <div class="icon" style="top:20px;left:20px" role="button" tabindex="0" aria-label="My Computer öffnen" ondblclick="openWin('computer')" onclick="selectIcon(this)" onkeydown="keyActivate(event, () => openWin('computer'))">
+    <svg width="32" height="32" aria-hidden="true"><use href="#ico-pc"/></svg>
     <div class="icon-label">My Computer</div>
   </div>
 
-  <div class="icon" style="top:110px;left:20px" ondblclick="openWin('about')" onclick="selectIcon(this)">
-    <svg width="32" height="32"><use href="#ico-folder"/></svg>
+  <div class="icon" style="top:110px;left:20px" role="button" tabindex="0" aria-label="My Documents öffnen" ondblclick="openWin('about')" onclick="selectIcon(this)" onkeydown="keyActivate(event, () => openWin('about'))">
+    <svg width="32" height="32" aria-hidden="true"><use href="#ico-folder"/></svg>
     <div class="icon-label">My Documents</div>
   </div>
 
-  <div class="icon" style="top:200px;left:20px" ondblclick="openWin('about')" onclick="selectIcon(this)">
-    <svg width="32" height="32"><use href="#ico-doc"/></svg>
+  <div class="icon" style="top:200px;left:20px" role="button" tabindex="0" aria-label="About öffnen" ondblclick="openWin('about')" onclick="selectIcon(this)" onkeydown="keyActivate(event, () => openWin('about'))">
+    <svg width="32" height="32" aria-hidden="true"><use href="#ico-doc"/></svg>
     <div class="icon-label">About</div>
   </div>
 
-  <div class="icon" style="top:295px;left:20px" ondblclick="openWin('projects')" onclick="selectIcon(this)">
-    <svg width="32" height="32"><use href="#ico-folder"/></svg>
+  <div class="icon" style="top:295px;left:20px" role="button" tabindex="0" aria-label="Projects öffnen" ondblclick="openWin('projects')" onclick="selectIcon(this)" onkeydown="keyActivate(event, () => openWin('projects'))">
+    <svg width="32" height="32" aria-hidden="true"><use href="#ico-folder"/></svg>
     <div class="icon-label">Projects</div>
   </div>
 
-  <div class="icon" style="top:390px;left:20px" ondblclick="openWin('computer')" onclick="selectIcon(this)">
-    <svg width="32" height="32"><use href="#ico-skill"/></svg>
+  <div class="icon" style="top:390px;left:20px" role="button" tabindex="0" aria-label="Skills öffnen" ondblclick="openWin('computer')" onclick="selectIcon(this)" onkeydown="keyActivate(event, () => openWin('computer'))">
+    <svg width="32" height="32" aria-hidden="true"><use href="#ico-skill"/></svg>
     <div class="icon-label">Skills</div>
   </div>
 
-  <div class="icon" style="top:485px;left:20px" ondblclick="openWin('blog')" onclick="selectIcon(this)">
-    <svg width="32" height="32"><use href="#ico-mail"/></svg>
+  <div class="icon" style="top:485px;left:20px" role="button" tabindex="0" aria-label="Contact öffnen" ondblclick="openWin('blog')" onclick="selectIcon(this)" onkeydown="keyActivate(event, () => openWin('blog'))">
+    <svg width="32" height="32" aria-hidden="true"><use href="#ico-mail"/></svg>
     <div class="icon-label">Contact</div>
   </div>
 
@@ -91,9 +91,9 @@
       My Computer
     </div>
     <div class="title-bar-btns">
-      <div class="win-btn win-btn-min" onclick="">_</div>
-      <div class="win-btn win-btn-max" onclick="">&#9633;</div>
-      <div class="win-btn win-btn-close" onclick="closeWin('computer')">x</div>
+      <div class="win-btn win-btn-min" aria-hidden="true" tabindex="-1">_</div>
+      <div class="win-btn win-btn-max" aria-hidden="true" tabindex="-1">&#9633;</div>
+      <div class="win-btn win-btn-close" role="button" tabindex="0" aria-label="Fenster schließen" onclick="closeWin('computer')" onkeydown="keyActivate(event, () => closeWin('computer'))">x</div>
     </div>
   </div>
   <div class="menu-bar">
@@ -106,9 +106,9 @@
   <div style="display:flex">
     <div class="xp-panel" style="min-width:130px">
       <div class="xp-panel-title">Systemaufgaben</div>
-      <a class="xp-panel-link" onclick="openWin('about')">Info anzeigen</a>
-      <a class="xp-panel-link" onclick="openWin('projects')">Projekte</a>
-      <a class="xp-panel-link" onclick="openWin('blog')">Kontakt</a>
+      <a class="xp-panel-link" role="button" tabindex="0" onclick="openWin('about')" onkeydown="keyActivate(event, () => openWin('about'))">Info anzeigen</a>
+      <a class="xp-panel-link" role="button" tabindex="0" onclick="openWin('projects')" onkeydown="keyActivate(event, () => openWin('projects'))">Projekte</a>
+      <a class="xp-panel-link" role="button" tabindex="0" onclick="openWin('blog')" onkeydown="keyActivate(event, () => openWin('blog'))">Kontakt</a>
     </div>
     <div class="drives-grid" style="flex:1">
 
@@ -212,9 +212,9 @@
       My Documents – About Me
     </div>
     <div class="title-bar-btns">
-      <div class="win-btn win-btn-min">_</div>
-      <div class="win-btn win-btn-max">&#9633;</div>
-      <div class="win-btn win-btn-close" onclick="closeWin('about')">x</div>
+      <div class="win-btn win-btn-min" aria-hidden="true" tabindex="-1">_</div>
+      <div class="win-btn win-btn-max" aria-hidden="true" tabindex="-1">&#9633;</div>
+      <div class="win-btn win-btn-close" role="button" tabindex="0" aria-label="Fenster schließen" onclick="closeWin('about')" onkeydown="keyActivate(event, () => closeWin('about'))">x</div>
     </div>
   </div>
   <div class="menu-bar">
@@ -298,9 +298,9 @@
       Projects
     </div>
     <div class="title-bar-btns">
-      <div class="win-btn win-btn-min">_</div>
-      <div class="win-btn win-btn-max">&#9633;</div>
-      <div class="win-btn win-btn-close" onclick="closeWin('projects')">x</div>
+      <div class="win-btn win-btn-min" aria-hidden="true" tabindex="-1">_</div>
+      <div class="win-btn win-btn-max" aria-hidden="true" tabindex="-1">&#9633;</div>
+      <div class="win-btn win-btn-close" role="button" tabindex="0" aria-label="Fenster schließen" onclick="closeWin('projects')" onkeydown="keyActivate(event, () => closeWin('projects'))">x</div>
     </div>
   </div>
   <div class="menu-bar">
@@ -357,8 +357,8 @@
         <div class="proj-desc">Bibliothekssystem für Code for Health</div>
         <div class="proj-tags"><span>PHP</span><span>MySQL</span></div>
       </div>
-      <div class="proj-row" ondblclick="openWin('delightex')">
-        <div class="proj-icon"><svg width="16" height="16"><use href="#ico-folder"/></svg> Delightex-Lernräume</div>
+      <div class="proj-row" role="button" tabindex="0" aria-label="Delightex-Lernräume Projektdetails öffnen" ondblclick="openWin('delightex')" onkeydown="keyActivate(event, () => openWin('delightex'))">
+        <div class="proj-icon"><svg width="16" height="16" aria-hidden="true"><use href="#ico-folder"/></svg> Delightex-Lernräume</div>
         <div class="proj-desc">Interaktive 3D-Lernräume für eine Schul-AG, eigenständig konzipiert und umgesetzt</div>
         <div class="proj-tags"><span>Delightex</span><span>CoBlocks</span><span>Blender</span></div>
       </div>
@@ -378,9 +378,9 @@
       Delightex-Lernräume.docx
     </div>
     <div class="title-bar-btns">
-      <div class="win-btn win-btn-min">_</div>
-      <div class="win-btn win-btn-max">&#9633;</div>
-      <div class="win-btn win-btn-close" onclick="closeWin('delightex')">x</div>
+      <div class="win-btn win-btn-min" aria-hidden="true" tabindex="-1">_</div>
+      <div class="win-btn win-btn-max" aria-hidden="true" tabindex="-1">&#9633;</div>
+      <div class="win-btn win-btn-close" role="button" tabindex="0" aria-label="Fenster schließen" onclick="closeWin('delightex')" onkeydown="keyActivate(event, () => closeWin('delightex'))">x</div>
     </div>
   </div>
   <div class="menu-bar">
@@ -393,7 +393,7 @@
     <div class="proj-detail">
       <h2 class="proj-detail-title">Interaktive Delightex-Lernräume: Konzeption und Umsetzung für eine Schul-AG</h2>
 
-      <video class="proj-detail-video" src="videos/Delightex.mp4" controls preload="metadata"></video>
+      <video class="proj-detail-video" src="videos/Delightex.mp4" controls preload="metadata" aria-label="Demo-Video der interaktiven Delightex-Lernräume"></video>
 
       <p>Im Rahmen meiner Arbeit schlug ich vor, die Workshops einer Schul-AG durch interaktive 3D-Lernräume in Delightex zu ergänzen. Ziel war es, eine wiederholt nutzbare Lernumgebung zu schaffen, in der die Kinder Programmierkonzepte selbstständig erproben und ihre Kenntnisse vertiefen können. Dabei sollten sie nicht ausschließlich KI-Anwendungen nutzen, sondern auch lernen, digitale Abläufe selbst zu gestalten und zu programmieren.</p>
 
@@ -424,9 +424,9 @@
       Contact
     </div>
     <div class="title-bar-btns">
-      <div class="win-btn win-btn-min">_</div>
-      <div class="win-btn win-btn-max">&#9633;</div>
-      <div class="win-btn win-btn-close" onclick="closeWin('blog')">x</div>
+      <div class="win-btn win-btn-min" aria-hidden="true" tabindex="-1">_</div>
+      <div class="win-btn win-btn-max" aria-hidden="true" tabindex="-1">&#9633;</div>
+      <div class="win-btn win-btn-close" role="button" tabindex="0" aria-label="Fenster schließen" onclick="closeWin('blog')" onkeydown="keyActivate(event, () => closeWin('blog'))">x</div>
     </div>
   </div>
   <div class="menu-bar">
@@ -507,7 +507,7 @@
         </svg>
         Willkommen im Setup Wizard
       </div>
-      <div id="wizard-close" onclick="closeWizard()">x</div>
+      <div id="wizard-close" role="button" tabindex="0" aria-label="Wizard schließen" onclick="closeWizard()" onkeydown="keyActivate(event, () => closeWizard())">x</div>
     </div>
     <div id="wizard-body">
       <div id="wizard-photo">
@@ -538,7 +538,7 @@
             Ich möchte dich einstellen
           </label>
         </div>
-        <div id="wizard-ai-area"></div>
+        <div id="wizard-ai-area" role="status" aria-live="polite"></div>
         <div id="wizard-sep"></div>
         <div id="wizard-footer">
           <button class="wiz-btn" onclick="openWin('about');closeWizard()">Abbrechen</button>
@@ -552,21 +552,21 @@
 
 <!-- ══════════════ CONTEXT MENU ══════════════ -->
 <div id="ctx-menu">
-  <div class="ctx-item" onclick="openWin('about');hideCtx()">
-    <svg width="16" height="16"><use href="#ico-doc"/></svg> About öffnen
+  <div class="ctx-item" role="button" tabindex="0" onclick="openWin('about');hideCtx()" onkeydown="keyActivate(event, () => {openWin('about');hideCtx()})">
+    <svg width="16" height="16" aria-hidden="true"><use href="#ico-doc"/></svg> About öffnen
   </div>
-  <div class="ctx-item" onclick="openWin('projects');hideCtx()">
-    <svg width="16" height="16"><use href="#ico-folder"/></svg> Projects öffnen
-  </div>
-  <div class="ctx-sep"></div>
-  <div class="ctx-item" onclick="openWin('computer');hideCtx()">
-    <svg width="16" height="16"><use href="#ico-pc"/></svg> Skills ansehen
-  </div>
-  <div class="ctx-item" onclick="openWin('blog');hideCtx()">
-    <svg width="16" height="16"><use href="#ico-mail"/></svg> Kontakt
+  <div class="ctx-item" role="button" tabindex="0" onclick="openWin('projects');hideCtx()" onkeydown="keyActivate(event, () => {openWin('projects');hideCtx()})">
+    <svg width="16" height="16" aria-hidden="true"><use href="#ico-folder"/></svg> Projects öffnen
   </div>
   <div class="ctx-sep"></div>
-  <div class="ctx-item" onclick="hideCtx()">Eigenschaften</div>
+  <div class="ctx-item" role="button" tabindex="0" onclick="openWin('computer');hideCtx()" onkeydown="keyActivate(event, () => {openWin('computer');hideCtx()})">
+    <svg width="16" height="16" aria-hidden="true"><use href="#ico-pc"/></svg> Skills ansehen
+  </div>
+  <div class="ctx-item" role="button" tabindex="0" onclick="openWin('blog');hideCtx()" onkeydown="keyActivate(event, () => {openWin('blog');hideCtx()})">
+    <svg width="16" height="16" aria-hidden="true"><use href="#ico-mail"/></svg> Kontakt
+  </div>
+  <div class="ctx-sep"></div>
+  <div class="ctx-item" role="button" tabindex="0" onclick="hideCtx()" onkeydown="keyActivate(event, () => hideCtx())">Eigenschaften</div>
 </div>
 
 
@@ -579,29 +579,29 @@
     <div class="start-username">Joanna Fischer Alpire</div>
   </div>
   <div class="start-items">
-    <div class="start-item" onclick="openWin('about');hideStart()">
-      <svg width="24" height="24"><use href="#ico-doc"/></svg>
+    <div class="start-item" role="button" tabindex="0" onclick="openWin('about');hideStart()" onkeydown="keyActivate(event, () => {openWin('about');hideStart()})">
+      <svg width="24" height="24" aria-hidden="true"><use href="#ico-doc"/></svg>
       <div class="start-item-texts">
         <div class="start-item-label">About Me</div>
         <div class="start-item-sub">Wer bin ich?</div>
       </div>
     </div>
-    <div class="start-item" onclick="openWin('projects');hideStart()">
-      <svg width="24" height="24"><use href="#ico-folder"/></svg>
+    <div class="start-item" role="button" tabindex="0" onclick="openWin('projects');hideStart()" onkeydown="keyActivate(event, () => {openWin('projects');hideStart()})">
+      <svg width="24" height="24" aria-hidden="true"><use href="#ico-folder"/></svg>
       <div class="start-item-texts">
         <div class="start-item-label">Projects</div>
         <div class="start-item-sub">Meine Arbeiten</div>
       </div>
     </div>
-    <div class="start-item" onclick="openWin('computer');hideStart()">
-      <svg width="24" height="24"><use href="#ico-pc"/></svg>
+    <div class="start-item" role="button" tabindex="0" onclick="openWin('computer');hideStart()" onkeydown="keyActivate(event, () => {openWin('computer');hideStart()})">
+      <svg width="24" height="24" aria-hidden="true"><use href="#ico-pc"/></svg>
       <div class="start-item-texts">
         <div class="start-item-label">Skills</div>
         <div class="start-item-sub">Technische Kenntnisse</div>
       </div>
     </div>
-    <div class="start-item" onclick="openWin('blog');hideStart()">
-      <svg width="24" height="24"><use href="#ico-mail"/></svg>
+    <div class="start-item" role="button" tabindex="0" onclick="openWin('blog');hideStart()" onkeydown="keyActivate(event, () => {openWin('blog');hideStart()})">
+      <svg width="24" height="24" aria-hidden="true"><use href="#ico-mail"/></svg>
       <div class="start-item-texts">
         <div class="start-item-label">Contact</div>
         <div class="start-item-sub">Schreib mir</div>
@@ -609,8 +609,8 @@
     </div>
   </div>
   <div class="start-footer">
-    <div class="start-footer-item" onclick="alert('Auf Wiedersehen!')">
-      <svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="#e84040" stroke="#a00" stroke-width="1"/><line x1="10" y1="3" x2="10" y2="10" stroke="white" stroke-width="2"/><path d="M5 5 Q2 8 2 10 Q2 16 10 18 Q18 16 18 10 Q18 8 15 5" fill="none" stroke="white" stroke-width="2"/></svg>
+    <div class="start-footer-item" role="button" tabindex="0" onclick="alert('Auf Wiedersehen!')" onkeydown="keyActivate(event, () => alert('Auf Wiedersehen!'))">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8" fill="#e84040" stroke="#a00" stroke-width="1"/><line x1="10" y1="3" x2="10" y2="10" stroke="white" stroke-width="2"/><path d="M5 5 Q2 8 2 10 Q2 16 10 18 Q18 16 18 10 Q18 8 15 5" fill="none" stroke="white" stroke-width="2"/></svg>
       Shut Down...
     </div>
   </div>

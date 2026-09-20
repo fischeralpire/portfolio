@@ -1,3 +1,12 @@
+// ── ACCESSIBILITY ──
+function keyActivate(e, fn) {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    fn();
+  }
+}
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 // ── CLOCK ──
 function updateClock() {
   const now = new Date();
@@ -153,34 +162,42 @@ function wizardNext() {
   };
   const text = answers[val] || '';
 
-  let i = 0;
-  function type() {
-    if (i < text.length) {
-      aiArea.innerHTML += text[i] === '\n' ? '<br>' : text[i];
-      i++;
-      setTimeout(type, 18);
-    } else {
-      if (val === 'hire') {
-        const row = document.createElement('div');
-        row.className = 'wizard-copy-row';
-        row.innerHTML =
-          '📧 <span class="wizard-copy-email">fischer.alpire@gmail.com</span>' +
-          '<button class="copy-btn" onclick="copyEmailWizard(this)" title="E-Mail kopieren" aria-label="E-Mail kopieren">' +
-          '<svg width="13" height="13" viewBox="0 0 16 16"><rect x="5" y="5" width="9" height="9" rx="1" fill="none" stroke="#7f9db9" stroke-width="1.3"/><rect x="2" y="2" width="9" height="9" rx="1" fill="white" stroke="#7f9db9" stroke-width="1.3"/></svg>' +
-          '</button>';
-        aiArea.appendChild(row);
-      }
-      nextBtn.disabled = false;
-      nextBtn.textContent = val === 'hire' ? 'Kontakt öffnen >' : 'Desktop erkunden >';
-      nextBtn.onclick = () => {
-        if (val === 'hire')        { openWin('blog'); }
-        else if (val === 'skills') { openWin('computer'); }
-        else                       { openWin('about'); }
-        closeWizard();
-      };
+  function finish() {
+    if (val === 'hire') {
+      const row = document.createElement('div');
+      row.className = 'wizard-copy-row';
+      row.innerHTML =
+        '📧 <span class="wizard-copy-email">fischer.alpire@gmail.com</span>' +
+        '<button class="copy-btn" onclick="copyEmailWizard(this)" title="E-Mail kopieren" aria-label="E-Mail kopieren">' +
+        '<svg width="13" height="13" viewBox="0 0 16 16"><rect x="5" y="5" width="9" height="9" rx="1" fill="none" stroke="#7f9db9" stroke-width="1.3"/><rect x="2" y="2" width="9" height="9" rx="1" fill="white" stroke="#7f9db9" stroke-width="1.3"/></svg>' +
+        '</button>';
+      aiArea.appendChild(row);
     }
+    nextBtn.disabled = false;
+    nextBtn.textContent = val === 'hire' ? 'Kontakt öffnen >' : 'Desktop erkunden >';
+    nextBtn.onclick = () => {
+      if (val === 'hire')        { openWin('blog'); }
+      else if (val === 'skills') { openWin('computer'); }
+      else                       { openWin('about'); }
+      closeWizard();
+    };
   }
-  type();
+
+  if (prefersReducedMotion) {
+    aiArea.innerHTML = text.replace(/\n/g, '<br>');
+    finish();
+  } else {
+    let i = 0;
+    (function type() {
+      if (i < text.length) {
+        aiArea.innerHTML += text[i] === '\n' ? '<br>' : text[i];
+        i++;
+        setTimeout(type, 18);
+      } else {
+        finish();
+      }
+    })();
+  }
 }
 
 function closeWizard() {
