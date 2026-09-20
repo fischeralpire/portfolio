@@ -373,10 +373,20 @@
         <div class="proj-desc">Interaktive 3D-Lernräume für eine Schul-AG, eigenständig konzipiert und umgesetzt</div>
         <div class="proj-tags"><span>Delightex</span><span>CoBlocks</span><span>Blender</span></div>
       </div>
+      <div class="proj-row" role="button" tabindex="0" aria-label="Game-Based Learning Projektdetails öffnen" ondblclick="openWin('promptklinik')" onkeydown="keyActivate(event, () => openWin('promptklinik'))">
+        <div class="proj-icon"><svg width="16" height="16" aria-hidden="true"><use href="#ico-folder"/></svg> Game-Based Learning</div>
+        <div class="proj-desc">Prompt-Klinik: interaktives Exponat für die Nacht der Wissenschaft</div>
+        <div class="proj-tags"><span>UX/UI</span><span>HTML/CSS/JS</span><span>Kiosk-App</span></div>
+      </div>
+      <div class="proj-row" role="button" tabindex="0" aria-label="FeelingMatch Projektdetails öffnen" ondblclick="openWin('feelingmatch')" onkeydown="keyActivate(event, () => openWin('feelingmatch'))">
+        <div class="proj-icon"><svg width="16" height="16" aria-hidden="true"><use href="#ico-folder"/></svg> FeelingMatch ❤</div>
+        <div class="proj-desc">Persönliches Herzensprojekt: Web-App, die Menschen anhand ihrer Stimmung verbindet</div>
+        <div class="proj-tags"><span>React</span><span>Vite</span><span>Supabase</span></div>
+      </div>
     </div>
   </div>
   <div class="status-bar">
-    <div class="status-panel">8 Objekte</div>
+    <div class="status-panel">10 Objekte</div>
     <div class="status-panel">Sortiert nach: Datum</div>
   </div>
 </div>
@@ -459,6 +469,81 @@
   </div>
   <div class="status-bar">
     <div class="status-panel">CoCre-HIT-Kompendium.docx</div>
+    <div class="status-panel">Version 2026.1</div>
+  </div>
+</div>
+
+<!-- PROMPT-KLINIK / GAME-BASED LEARNING PROJECT DETAIL -->
+<div class="window" id="win-promptklinik" style="top:60px;left:250px;width:640px">
+  <div class="title-bar" onmousedown="dragStart(event,'promptklinik')">
+    <div class="title-bar-left">
+      <svg class="title-bar-icon" width="16" height="16"><use href="#ico-folder"/></svg>
+      Prompt-Klinik.docx
+    </div>
+    <div class="title-bar-btns">
+      <div class="win-btn win-btn-min" aria-hidden="true" tabindex="-1">_</div>
+      <div class="win-btn win-btn-max" aria-hidden="true" tabindex="-1">&#9633;</div>
+      <div class="win-btn win-btn-close" role="button" tabindex="0" aria-label="Fenster schließen" onclick="closeWin('promptklinik')" onkeydown="keyActivate(event, () => closeWin('promptklinik'))">x</div>
+    </div>
+  </div>
+  <div class="menu-bar">
+    <span class="menu-item">Datei</span>
+    <span class="menu-item">Bearbeiten</span>
+    <span class="menu-item">Ansicht</span>
+  </div>
+  <div class="address-bar">Meine Dokumente \ Projects \ Game-Based Learning</div>
+  <div class="window-content" style="max-height:560px">
+    <div class="proj-detail">
+      <h2 class="proj-detail-title">Prompt-Klinik — Interaktives Exponat für die Nacht der Wissenschaft</h2>
+      <p class="proj-detail-role">Rolle: Mentoring, UX/UI-Konzeption, technische Umsetzung<br>Code for Health · Nacht der Wissenschaft, HSD, 11. September 2026</p>
+
+      <img class="proj-detail-image" src="img/promptklinik-1.jpg" alt="Besucher:innen werfen Bälle auf die Zielscheibe des Prompt-Klinik-Exponats">
+      <img class="proj-detail-image" src="img/promptklinik-2.jpg" alt="Die Prompt-Klinik-Anwendung läuft auf dem Touchscreen-Kiosk">
+
+      <a class="proj-detail-link" href="games/prompt-klinik.html" target="_blank" rel="noopener">Spiel öffnen und spielen ↗</a>
+
+      <p>Im Rahmen ihrer Masterarbeit habe ich eine Kommilitonin bei Code for Health fachlich begleitet. Ihre Idee, die „Prompt-Klinik", macht spielerisch erlebbar, wie stark ein Prompt eine KI-Antwort formt: Besucher:innen werfen vier Bälle auf eine Zielscheibe, die vier KI-Einstellungen festlegen, und erhalten am Ende ein ausdruckbares „Rezept" mit ihrer individuellen Antwort. Ich habe das UX/UI-Konzept entwickelt und die App als eigenständige Touchscreen-Kiosk-Anwendung (HTML/CSS/JS) inklusive Druckfunktion umgesetzt.</p>
+    </div>
+  </div>
+  <div class="status-bar">
+    <div class="status-panel">Prompt-Klinik.docx</div>
+    <div class="status-panel">Version 2026.1</div>
+  </div>
+</div>
+
+<!-- FEELINGMATCH PROJECT DETAIL -->
+<div class="window" id="win-feelingmatch" style="top:60px;left:250px;width:640px">
+  <div class="title-bar" onmousedown="dragStart(event,'feelingmatch')">
+    <div class="title-bar-left">
+      <svg class="title-bar-icon" width="16" height="16"><use href="#ico-folder"/></svg>
+      FeelingMatch.docx
+    </div>
+    <div class="title-bar-btns">
+      <div class="win-btn win-btn-min" aria-hidden="true" tabindex="-1">_</div>
+      <div class="win-btn win-btn-max" aria-hidden="true" tabindex="-1">&#9633;</div>
+      <div class="win-btn win-btn-close" role="button" tabindex="0" aria-label="Fenster schließen" onclick="closeWin('feelingmatch')" onkeydown="keyActivate(event, () => closeWin('feelingmatch'))">x</div>
+    </div>
+  </div>
+  <div class="menu-bar">
+    <span class="menu-item">Datei</span>
+    <span class="menu-item">Bearbeiten</span>
+    <span class="menu-item">Ansicht</span>
+  </div>
+  <div class="address-bar">Meine Dokumente \ Projects \ FeelingMatch</div>
+  <div class="window-content" style="max-height:560px">
+    <div class="proj-detail">
+      <h2 class="proj-detail-title">FeelingMatch</h2>
+      <p class="proj-detail-role">Persönliches Herzensprojekt · Eigenständig konzipiert, designt und entwickelt</p>
+
+      <a class="proj-detail-link" href="https://github.com/fischeralpire/feelingmatch" target="_blank" rel="noopener">github.com/fischeralpire/feelingmatch ↗</a>
+
+      <p>FeelingMatch ist eine Web-App, die Menschen anonym anhand ihrer aktuellen Stimmung miteinander verbindet. Nutzer:innen wählen ihre Stimmung aus einer rund 40 Emotionen umfassenden Taxonomie (aufgebaut auf Plutchiks „Wheel of Emotions"), führen ein tägliches Mood-Check-in, sammeln XP und schalten dabei nach und nach neue Avatare frei. Über eine echte Freundesliste mit Chat können sich Nutzer:innen zusätzlich austauschen.</p>
+
+      <p>Technisch ist die App vollständig mit React und Vite gebaut, mit Supabase im Hintergrund für Authentifizierung, Datenbank und Realtime-Chat. Da echte Nutzer:innendaten gespeichert werden, ist die Live-Version passwortgeschützt — bei Interesse gerne bei mir melden.</p>
+    </div>
+  </div>
+  <div class="status-bar">
+    <div class="status-panel">FeelingMatch.docx</div>
     <div class="status-panel">Version 2026.1</div>
   </div>
 </div>
@@ -654,6 +739,13 @@
         <div class="start-item-sub">Schreib mir</div>
       </div>
     </div>
+    <a class="start-item" href="files/Lebenslauf-Joanna-Fischer-Alpire.pdf" download>
+      <svg width="24" height="24" aria-hidden="true"><use href="#ico-doc"/></svg>
+      <div class="start-item-texts">
+        <div class="start-item-label">Lebenslauf</div>
+        <div class="start-item-sub">Als PDF herunterladen</div>
+      </div>
+    </a>
   </div>
   <div class="start-footer">
     <div class="start-footer-item" role="button" tabindex="0" onclick="alert('Auf Wiedersehen!')" onkeydown="keyActivate(event, () => alert('Auf Wiedersehen!'))">

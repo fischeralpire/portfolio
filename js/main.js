@@ -28,6 +28,8 @@ const wins = {
   blog:      { el: null, title: 'Contact',             zIndex: 100 },
   delightex: { el: null, title: 'Delightex-Lernräume', zIndex: 100 },
   cocrehit:  { el: null, title: 'CoCre-HIT-Kompendium', zIndex: 100 },
+  promptklinik: { el: null, title: 'Prompt-Klinik', zIndex: 100 },
+  feelingmatch: { el: null, title: 'FeelingMatch', zIndex: 100 },
 };
 let topZ = 200;
 
@@ -38,6 +40,8 @@ function initWins() {
   wins.blog.el      = document.getElementById('win-blog');
   wins.delightex.el = document.getElementById('win-delightex');
   wins.cocrehit.el  = document.getElementById('win-cocrehit');
+  wins.promptklinik.el = document.getElementById('win-promptklinik');
+  wins.feelingmatch.el = document.getElementById('win-feelingmatch');
 }
 
 function openWin(name) {

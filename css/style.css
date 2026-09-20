@@ -436,6 +436,11 @@ body {
   word-break: break-all;
 }
 .proj-detail-link:hover { color: #c00; }
+.proj-detail-role {
+  font-size: 10px; color: #555;
+  margin-bottom: 12px; padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
 
 /* ── CONTACT ── */
 #win-blog { width: 420px; top: 90px; left: 210px; }
@@ -628,6 +633,7 @@ body {
 .start-item {
   display: flex; align-items: center; gap: 10px;
   padding: 6px 12px; font-size: 12px; cursor: pointer;
+  text-decoration: none; color: inherit;
 }
 .start-item:hover { background: var(--xp-select-bg); color: white; }
 .start-item:hover .start-item-sub { color: rgba(255,255,255,0.8); }
