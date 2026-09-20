@@ -203,12 +203,22 @@ function wizardNext() {
   }
 }
 
+function setBackgroundInert(isInert) {
+  document.getElementById('desktop').inert = isInert;
+  document.querySelectorAll('.window').forEach(w => { w.inert = isInert; });
+  document.getElementById('taskbar').inert = isInert;
+}
+
 function closeWizard() {
   document.getElementById('wizard-overlay').classList.add('hidden');
+  setBackgroundInert(false);
 }
 
 // ── INIT ──
 window.onload = () => {
   initWins();
   openWin('about');
+  setBackgroundInert(true);
+  const firstOption = document.querySelector('#wizard-options input[name="wiz"]');
+  if (firstOption) firstOption.focus();
 };
