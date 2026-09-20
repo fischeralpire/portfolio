@@ -109,6 +109,18 @@ function copyValue(btn, text) {
   });
 }
 
+function copyEmailWizard(btn) {
+  navigator.clipboard.writeText('fischer.alpire@gmail.com').then(() => {
+    const original = btn.innerHTML;
+    btn.classList.add('copied', 'copied-text');
+    btn.textContent = 'Ich freue mich!';
+    setTimeout(() => {
+      btn.innerHTML = original;
+      btn.classList.remove('copied', 'copied-text');
+    }, 1800);
+  });
+}
+
 // ── ICON SELECT ──
 function selectIcon(el) {
   document.querySelectorAll('.icon').forEach(i => i.classList.remove('selected'));
@@ -137,7 +149,7 @@ function wizardNext() {
   const answers = {
     about:  "Ich studiere Medieninformatik im Master an der HSD Düsseldorf und arbeite nebenbei als Werkstudentin bei Code for Health im Bereich UX/UI Design. Ursprünglich komme ich aus Bolivien, lebe aber inzwischen in Essen – Design, das wirklich für Menschen funktioniert, ist meine Leidenschaft.",
     skills: "HTML/CSS, JavaScript, React, PHP und Figma gehören zu meinen Stärken – die komplette Übersicht mit Einschätzung findest du gleich im Skills-Fenster.",
-    hire:   "Das freut mich riesig! Schreib mir einfach eine E-Mail an fischer.alpire@gmail.com – ich melde mich garantiert zurück."
+    hire:   "Für das nächste Update ist zuerst eine Verbindung erforderlich. Nimm Kontakt mit mir auf."
   };
   const text = answers[val] || '';
 
@@ -148,6 +160,16 @@ function wizardNext() {
       i++;
       setTimeout(type, 18);
     } else {
+      if (val === 'hire') {
+        const row = document.createElement('div');
+        row.className = 'wizard-copy-row';
+        row.innerHTML =
+          '📧 <span class="wizard-copy-email">fischer.alpire@gmail.com</span>' +
+          '<button class="copy-btn" onclick="copyEmailWizard(this)" title="E-Mail kopieren" aria-label="E-Mail kopieren">' +
+          '<svg width="13" height="13" viewBox="0 0 16 16"><rect x="5" y="5" width="9" height="9" rx="1" fill="none" stroke="#7f9db9" stroke-width="1.3"/><rect x="2" y="2" width="9" height="9" rx="1" fill="white" stroke="#7f9db9" stroke-width="1.3"/></svg>' +
+          '</button>';
+        aiArea.appendChild(row);
+      }
       nextBtn.disabled = false;
       nextBtn.textContent = val === 'hire' ? 'Kontakt öffnen >' : 'Desktop erkunden >';
       nextBtn.onclick = () => {

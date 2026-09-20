@@ -431,6 +431,17 @@ body {
 .copy-btn:hover { background: linear-gradient(to bottom, #fff 0%, #ece9d8 100%); }
 .copy-btn:active { filter: brightness(0.9); }
 .copy-btn.copied { border-color: #2a8a2a; }
+.copy-btn.copied-text {
+  width: auto; padding: 2px 8px;
+  color: #2a8a2a; font-weight: bold; font-size: 10px;
+  white-space: nowrap;
+}
+
+.wizard-copy-row {
+  display: flex; align-items: center; gap: 6px;
+  margin-top: 8px; font-size: 11px;
+}
+.wizard-copy-email { font-weight: bold; }
 
 /* ── STATUS BAR ── */
 .status-bar {
