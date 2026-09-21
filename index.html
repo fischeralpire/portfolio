@@ -591,6 +591,28 @@
   </div>
 </div>
 
+<!-- PONG GAME -->
+<div class="window" id="win-pong" style="top:80px;left:260px;width:420px">
+  <div class="title-bar" onmousedown="dragStart(event,'pong')">
+    <div class="title-bar-left">
+      <svg class="title-bar-icon" width="16" height="16"><use href="#ico-game"/></svg>
+      Pong42.exe
+    </div>
+    <div class="title-bar-btns">
+      <div class="win-btn win-btn-min" aria-hidden="true" tabindex="-1">_</div>
+      <div class="win-btn win-btn-max" aria-hidden="true" tabindex="-1">&#9633;</div>
+      <div class="win-btn win-btn-close" role="button" tabindex="0" aria-label="Fenster schließen" onclick="closeWin('pong')" onkeydown="keyActivate(event, () => closeWin('pong'))">x</div>
+    </div>
+  </div>
+  <div class="window-content" style="padding:0">
+    <iframe src="games/pong.html" title="Pong42 Spiel" style="width:100%;height:340px;border:0;display:block"></iframe>
+  </div>
+  <div class="status-bar">
+    <div class="status-panel">Pong42.exe</div>
+    <div class="status-panel">Läuft</div>
+  </div>
+</div>
+
 <!-- CONTACT -->
 <div class="window" id="win-blog" style="top:90px;left:210px">
   <div class="title-bar" onmousedown="dragStart(event,'blog')">
@@ -789,13 +811,13 @@
         <div class="start-item-sub">Als PDF herunterladen</div>
       </div>
     </a>
-    <a class="start-item" href="games/pong.html" target="_blank" rel="noopener">
+    <div class="start-item" role="button" tabindex="0" onclick="openWin('pong');hideStart()" onkeydown="keyActivate(event, () => {openWin('pong');hideStart()})">
       <svg width="24" height="24" aria-hidden="true"><use href="#ico-game"/></svg>
       <div class="start-item-texts">
         <div class="start-item-label">Spiele</div>
         <div class="start-item-sub">Pong42 spielen</div>
       </div>
-    </a>
+    </div>
   </div>
   <div class="start-footer">
     <div class="start-footer-item" role="button" tabindex="0" onclick="alert('Auf Wiedersehen!')" onkeydown="keyActivate(event, () => alert('Auf Wiedersehen!'))">

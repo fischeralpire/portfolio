@@ -31,6 +31,7 @@ const wins = {
   promptklinik: { el: null, title: 'Prompt-Klinik', zIndex: 100 },
   feelingmatch: { el: null, title: 'FeelingMatch', zIndex: 100 },
   schoollab: { el: null, title: 'SchoolLab: Diagnose 2.0', zIndex: 100 },
+  pong: { el: null, title: 'Pong42', zIndex: 100 },
 };
 let topZ = 200;
 
@@ -44,6 +45,7 @@ function initWins() {
   wins.promptklinik.el = document.getElementById('win-promptklinik');
   wins.feelingmatch.el = document.getElementById('win-feelingmatch');
   wins.schoollab.el = document.getElementById('win-schoollab');
+  wins.pong.el = document.getElementById('win-pong');
 }
 
 function openWin(name) {
