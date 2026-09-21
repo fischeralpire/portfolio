@@ -320,6 +320,7 @@ body {
 
 /* ── SKILLS / MY COMPUTER ── */
 #win-computer { width: 640px; top: 60px; left: 170px; }
+.computer-body { display: flex; }
 .xp-panel {
   background: #ecf4fb;
   border-right: 1px solid #7f9db9;
@@ -673,3 +674,59 @@ body {
   border: 1px solid #888; border-radius: 2px;
 }
 ::-webkit-scrollbar-button { background: #ece9d8; border: 1px solid #aaa; height: 14px; }
+
+/* ── RESPONSIVE (phones / narrow screens) ── */
+@media (max-width: 700px) {
+  body { font-size: 12px; }
+
+  /* Desktop icons: smaller, tighter column so all fit on short screens */
+  .icon { width: 68px; }
+  .icon svg, .icon img { width: 28px; height: 28px; }
+  .icon-label { font-size: 10px; }
+
+  /* Windows: dock to a near-fullscreen sheet instead of a floating box at a fixed px position/size */
+  .window.visible {
+    left: 2vw !important;
+    top: 2vw !important;
+    width: 96vw !important;
+    max-width: 96vw !important;
+    min-width: 0 !important;
+  }
+  .window-content { max-height: 62vh !important; }
+
+  /* Skills: stack the task panel above the grid, drop to 2 columns */
+  .computer-body { flex-direction: column; }
+  .xp-panel { border-right: none; border-bottom: 1px solid #7f9db9; }
+  .drives-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 10px; max-height: 46vh; }
+  .drive-item { padding: 8px; gap: 4px; }
+  .drive-item svg { width: 40px !important; height: 40px !important; }
+  .drive-name { font-size: 11px; }
+
+  /* Projects list: stack columns instead of a fixed 3-column grid */
+  .proj-header { display: none; }
+  .proj-row {
+    grid-template-columns: 1fr;
+    row-gap: 4px;
+    padding: 8px;
+  }
+  .proj-desc { padding-right: 0; }
+
+  /* About: single-column detail rows, smaller header */
+  .about-details { grid-template-columns: 1fr; }
+  .about-header { flex-wrap: wrap; }
+
+  /* Wizard: stack the photo above the content instead of side-by-side */
+  #wizard-win { width: 92vw; max-height: 92vh; overflow-y: auto; }
+  #wizard-body { flex-direction: column; }
+  #wizard-photo { width: 100%; height: 140px; }
+  #wizard-greeting { font-size: 16px; }
+
+  /* Start menu: a bit narrower so it never overflows the screen */
+  #start-menu { width: min(240px, 82vw); }
+
+  /* Taskbar buttons: shrink so more fit without overlap */
+  .taskbar-btn { min-width: 70px; max-width: 110px; }
+
+  /* Pong window: let the game iframe take up more vertical space */
+  #win-pong iframe { height: 55vh !important; }
+}
