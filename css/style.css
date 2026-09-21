@@ -340,20 +340,21 @@ body {
 }
 .xp-panel-link:hover { color: #c00; }
 
-.drives-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 16px;
+.skill-list {
+  display: flex; flex-direction: column;
   background: white; border: 1px solid #7f9db9;
   max-height: 480px; overflow-y: auto;
 }
-.drive-item {
-  display: flex; flex-direction: column; align-items: center;
-  gap: 8px; padding: 16px; border-radius: 3px;
-  cursor: pointer; text-align: center;
+.skill-row {
+  display: flex; align-items: center;
+  gap: 10px; padding: 7px 14px;
+  border-bottom: 1px solid #eee;
+  cursor: default;
 }
-.drive-item:hover { background: #dce8f8; border: 1px solid #7f9db9; }
-.drive-item:hover .drive-name { color: var(--xp-blue-dark); }
-.drive-name { font-size: 13px; font-weight: bold; color: #333; }
-.drive-sub { font-size: 9px; color: #777; }
+.skill-row:nth-child(even) { background: #f8fbff; }
+.skill-row:hover { background: #dce8f8; }
+.skill-row:hover .skill-name { color: var(--xp-blue-dark); }
+.skill-name { font-size: 12px; font-weight: bold; color: #333; }
 
 /* ── PROJECTS ── */
 #win-projects { width: 580px; top: 60px; left: 230px; }
@@ -697,10 +698,9 @@ body {
   /* Skills: stack the task panel above the grid, drop to 2 columns */
   .computer-body { flex-direction: column; }
   .xp-panel { border-right: none; border-bottom: 1px solid #7f9db9; }
-  .drives-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 10px; max-height: 46vh; }
-  .drive-item { padding: 8px; gap: 4px; }
-  .drive-item svg { width: 40px !important; height: 40px !important; }
-  .drive-name { font-size: 11px; }
+  .skill-list { max-height: 46vh; }
+  .skill-row { padding: 6px 10px; }
+  .skill-name { font-size: 11px; }
 
   /* Projects list: stack columns instead of a fixed 3-column grid */
   .proj-header { display: none; }
