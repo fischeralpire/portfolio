@@ -32,6 +32,7 @@ const wins = {
   feelingmatch: { el: null, title: 'FeelingMatch', zIndex: 100 },
   schoollab: { el: null, title: 'SchoolLab: Diagnose 2.0', zIndex: 100 },
   pong: { el: null, title: 'Pong42', zIndex: 100 },
+  skills: { el: null, title: 'Lokaler Datenträger (C:)', zIndex: 100 },
 };
 let topZ = 200;
 
@@ -46,6 +47,7 @@ function initWins() {
   wins.feelingmatch.el = document.getElementById('win-feelingmatch');
   wins.schoollab.el = document.getElementById('win-schoollab');
   wins.pong.el = document.getElementById('win-pong');
+  wins.skills.el = document.getElementById('win-skills');
 }
 
 function openWin(name) {
@@ -194,7 +196,7 @@ function wizardNext() {
     nextBtn.disabled = false;
     nextBtn.textContent = val === 'hire' ? 'Kontakt öffnen >' : 'Desktop erkunden >';
     nextBtn.onclick = () => {
-      openWin(val === 'hire' ? 'blog' : 'computer');
+      openWin(val === 'hire' ? 'blog' : 'skills');
       closeWizard();
     };
   }
