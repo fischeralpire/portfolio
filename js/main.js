@@ -65,6 +65,12 @@ function bringToFront(name) {
   topZ++;
   wins[name].el.style.zIndex = topZ;
   wins[name].zIndex = topZ;
+  const iframe = wins[name].el.querySelector('iframe');
+  if (iframe) {
+    setTimeout(() => {
+      try { iframe.contentWindow.focus(); } catch (e) {}
+    }, 50);
+  }
 }
 
 function updateTaskbar() {
