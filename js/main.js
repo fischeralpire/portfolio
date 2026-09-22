@@ -31,6 +31,8 @@ const wins = {
   promptklinik: { el: null, title: 'Prompt-Klinik', zIndex: 100 },
   feelingmatch: { el: null, title: 'FeelingMatch', zIndex: 100 },
   schoollab: { el: null, title: 'SchoolLab: Diagnose 2.0', zIndex: 100 },
+  petabyte: { el: null, title: 'Petabytes of Pop', zIndex: 100 },
+  zeitkapsel: { el: null, title: 'Zeitkapsel II', zIndex: 100 },
   pong: { el: null, title: 'Pong42', zIndex: 100 },
   skills: { el: null, title: 'Lokaler Datenträger (C:)', zIndex: 100 },
 };
@@ -46,6 +48,8 @@ function initWins() {
   wins.promptklinik.el = document.getElementById('win-promptklinik');
   wins.feelingmatch.el = document.getElementById('win-feelingmatch');
   wins.schoollab.el = document.getElementById('win-schoollab');
+  wins.petabyte.el = document.getElementById('win-petabyte');
+  wins.zeitkapsel.el = document.getElementById('win-zeitkapsel');
   wins.pong.el = document.getElementById('win-pong');
   wins.skills.el = document.getElementById('win-skills');
 }
