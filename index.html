@@ -510,10 +510,10 @@
         <div class="proj-desc">Extension mit Datenbankanbindung und nutzerfreundlicher UI</div>
         <div class="proj-tags"><span>TYPO3</span><span>PHP</span><span>SQL</span></div>
       </div>
-      <div class="proj-row">
-        <div class="proj-icon"><svg width="16" height="16"><use href="#ico-folder"/></svg> SQL-GPT</div>
-        <div class="proj-desc">NLP zu SQL via LLM-Integration, Flask Backend</div>
-        <div class="proj-tags"><span>Python</span><span>Flask</span><span>MySQL</span></div>
+      <div class="proj-row" role="button" tabindex="0" aria-label="SQL-GPT Projektdetails öffnen" ondblclick="openWin('sqlgpt')" onkeydown="keyActivate(event, () => openWin('sqlgpt'))">
+        <div class="proj-icon"><svg width="16" height="16" aria-hidden="true"><use href="#ico-folder"/></svg> SQL-GPT</div>
+        <div class="proj-desc">Masterprojekt an der HSD: NLP zu SQL via LLM-Integration, Flask Backend</div>
+        <div class="proj-tags"><span>Python</span><span>Flask</span><span>LLM</span></div>
       </div>
       <div class="proj-row">
         <div class="proj-icon"><svg width="16" height="16"><use href="#ico-folder"/></svg> 3D-Workshopreihe</div>
@@ -809,6 +809,45 @@
   </div>
   <div class="status-bar">
     <div class="status-panel">Zeitkapsel-II.docx</div>
+    <div class="status-panel">Version 2026.1</div>
+  </div>
+</div>
+
+<!-- SQL-GPT PROJECT DETAIL -->
+<div class="window" id="win-sqlgpt" style="top:60px;left:250px;width:640px">
+  <div class="title-bar" onmousedown="dragStart(event,'sqlgpt')">
+    <div class="title-bar-left">
+      <svg class="title-bar-icon" width="16" height="16"><use href="#ico-folder"/></svg>
+      SQL-GPT.docx
+    </div>
+    <div class="title-bar-btns">
+      <div class="win-btn win-btn-min" aria-hidden="true" tabindex="-1">_</div>
+      <div class="win-btn win-btn-max" aria-hidden="true" tabindex="-1">&#9633;</div>
+      <div class="win-btn win-btn-close" role="button" tabindex="0" aria-label="Fenster schließen" onclick="closeWin('sqlgpt')" onkeydown="keyActivate(event, () => closeWin('sqlgpt'))">x</div>
+    </div>
+  </div>
+  <div class="menu-bar">
+    <span class="menu-item">Datei</span>
+    <span class="menu-item">Bearbeiten</span>
+    <span class="menu-item">Ansicht</span>
+  </div>
+  <div class="address-bar">Meine Dokumente \ Projects \ SQL-GPT</div>
+  <div class="window-content" style="max-height:560px">
+    <div class="proj-detail">
+      <h2 class="proj-detail-title">SQL-GPT: Datenbankzugriff ohne SQL-Kenntnisse</h2>
+      <p class="proj-detail-role">Masterprojekt, Hochschule Düsseldorf<br>Datenbanken und E-Business, Prof. Dr.-Ing. Thomas Rakow, M.Sc. Björn Salgert<br>Team: Leonard Hackenberg, Nils Haschke, Joanna Fischer Alpire</p>
+
+      <img class="proj-detail-image" src="img/sql-gpt-poster.png" alt="Wissenschaftliches Poster zu SQL-GPT mit Architektur, Ablauf und Evaluationsergebnissen">
+
+      <p>SQL-GPT ermöglicht Nicht-Expert:innen den Zugriff auf relationale Datenbanken über natürliche Sprache statt über SQL. Nutzer:innen verbinden sich über eine Web-Oberfläche mit ihrem eigenen Datenbankserver, stellen eine ganz normale Frage zu ihren Daten und erhalten die Antwort direkt als Tabelle zurück, ohne selbst eine Abfrage schreiben zu müssen.</p>
+
+      <p>Im Hintergrund werden Frage und Datenbankschema zu einem Prompt zusammengesetzt, an ein LLM geschickt, das daraus ein SQL-Statement extrahiert; dieses wird gegen die Datenbank ausgeführt und das Ergebnis als Tabelle angezeigt. Da Modellwahl und Prompt-Gestaltung die Qualität der generierten SQL-Abfragen stark beeinflussen, haben wir einen Evaluator gebaut, der verschiedene LLMs (u. a. Llama3.2, Gemma2:27B) mit Testdatensätzen vergleicht. Ein Ergebnis: Sorgfältiges Prompt-Engineering hilft vor allem schwächeren Modellen deutlich, während stärkere Modelle weniger davon profitieren.</p>
+
+      <p>Umgesetzt haben wir das Projekt mit Python und Flask im Backend, Huggingface und Ollama für die LLM-Anbindung sowie MySQL, Oracle und SQLite als unterstützte Datenbanken.</p>
+    </div>
+  </div>
+  <div class="status-bar">
+    <div class="status-panel">SQL-GPT.docx</div>
     <div class="status-panel">Version 2026.1</div>
   </div>
 </div>

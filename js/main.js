@@ -33,6 +33,7 @@ const wins = {
   schoollab: { el: null, title: 'SchoolLab: Diagnose 2.0', zIndex: 100 },
   petabyte: { el: null, title: 'Petabytes of Pop', zIndex: 100 },
   zeitkapsel: { el: null, title: 'Zeitkapsel II', zIndex: 100 },
+  sqlgpt: { el: null, title: 'SQL-GPT', zIndex: 100 },
   pong: { el: null, title: 'Pong42', zIndex: 100 },
   skills: { el: null, title: 'Lokaler Datenträger (C:)', zIndex: 100 },
 };
@@ -50,6 +51,7 @@ function initWins() {
   wins.schoollab.el = document.getElementById('win-schoollab');
   wins.petabyte.el = document.getElementById('win-petabyte');
   wins.zeitkapsel.el = document.getElementById('win-zeitkapsel');
+  wins.sqlgpt.el = document.getElementById('win-sqlgpt');
   wins.pong.el = document.getElementById('win-pong');
   wins.skills.el = document.getElementById('win-skills');
 }
